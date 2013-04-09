@@ -15,26 +15,36 @@ Installation
 
 Install, upgrade and uninstall django-nvd3.py with these commands::
 
-  #Install
-  $ sudo pip install django-nvd3
-
-  #Upgrade
-  $ sudo pip install --upgrade django-nvd3
-
-  #Uninstall
-  $ sudo pip uninstall django-nvd3
+    $ sudo pip install django-nvd3
+    $ sudo pip install --upgrade django-nvd3
+    $ sudo pip uninstall django-nvd3
 
 
-Or if you don't have `pip`, use easy_install to install django-nvd3::
+How to Create Charts
+---------------------
 
-  $ sudo easy_install django-nvd3
+Here is a short example of how to create a lineWithFocusChart. Let’s say we have a simple model with the following fields:
+
+...[describe model]
 
 
-Usage
------
+...[show some view code]
 
-After installation use django-nvd3 as follows ::
 
+And you can use the ``load_nvd3`` filter in the django template to render the chart. ::
+
+  <head>
+      <!-- code to include the NVD3 and D3 libraries goes here -->
+      <!-- load_nvd3 filter takes a comma-separated list of id's where -->
+      <!-- the charts need to be rendered to                             -->
+      {% load nvd3_graph %}
+      {{ chartname|load_charts:"container" }}
+  </head>
+  <body>
+      <div id='container'> Chart will be rendered here </div>
+  </body>
+
+...[show template code]
 
 
 See the sample_project for an example of django-nvd3 usage.
@@ -67,8 +77,8 @@ Currently implemented nvd3 chart:
 Projects using Django-nvd3
 --------------------------
 
-CDR-Stats : www.cdr-stats.org
-Newfies-Dialer : www.newfies-dialer.org
+* CDR-Stats : www.cdr-stats.org
+* Newfies-Dialer : www.newfies-dialer.org
 
 
 Documentation
