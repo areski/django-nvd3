@@ -8,4 +8,3 @@ class NVD3View(BaseAuthenticatedClient):
     def test_writetest(self):
         """Test Function to check"""
         self.assertEqual(1, 4)
-
