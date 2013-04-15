@@ -5,6 +5,19 @@ from django.utils.safestring import mark_safe
 #from django.conf import settings
 #from django.utils.translation import ugettext_lazy as _
 import datetime
+from nvd3 import pieChart
+
+
+  # <head>
+  #     <!-- code to include the NVD3 and D3 libraries goes here -->
+  #     <!-- load_nvd3 filter takes a comma-separated list of id's where -->
+  #     <!-- the charts need to be rendered to                             -->
+  #     {% load nvd3_graph %}
+  #     {{ chartname|load_charts:"container" }}
+  # </head>
+  # <body>
+  #     <div id='container'> Chart will be rendered here </div>
+  # </body>
 
 
 @register.assignment_tag(name='load_nvd3')
@@ -16,11 +29,19 @@ def load_nvd3(chart_type, series, render_to=''):
 
     - **render_to** - id where the chart needs to be rendered to.
     """
-    js_script = (
-        '<script type="text/javascript">\n'
-        'var test=1;\n\n'
-        'alert(\'NVD3\');\n</script>')
-    return mark_safe(js_script)
+    type = "pieChart"
+    chart = pieChart(name=type, height=400, width=400)
+    chart.set_containerheader("\n\n<h2>" + type + "</h2>\n\n")
+    xdata = ["Orange", "Banana", "Pear", "Kiwi", "Apple", "Strawberry", "Pineapple"]
+    ydata = [3, 4, 0, 1, 5, 7, 3]
+
+    chart.add_serie(y=ydata, x=xdata)
+    chart.buildhtml()
+
+    #jschart
+    #container
+    #htmlheader
+    return mark_safe(chart.htmlcontent)
 
 
 # @register.filter(name='cut')
@@ -33,6 +54,7 @@ def load_nvd3(chart_type, series, render_to=''):
 @stringfilter
 def superlower(value):
     return value.lower()
+
 
 # Template usage
 # {% get_current_time "%Y-%m-%d %I:%M %p" as the_time %}
