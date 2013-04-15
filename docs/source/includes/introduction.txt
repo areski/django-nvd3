@@ -55,6 +55,22 @@ After installation use django-nvd3 as follows ::
 
 
 
+Template usage
+--------------
+
+Pie chart
+~~~~~~~~~
+
+::
+
+    {% nvd3 %}
+        {% nvd3-data dataset %}
+        {% nvd3-size "400x300" %}
+        {% nvd3-type "pieChart" %}
+    {% endnvd3 %}
+
+
+
 See our examples directory for more usage.
 
 
