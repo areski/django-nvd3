@@ -1,2 +1,1 @@
-from django.conf.urls import patterns, include
-
+# from django.conf.urls import patterns, include
