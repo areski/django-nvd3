@@ -7,5 +7,7 @@ Welcome to our Demo!
 <h1>Pie chart</h1>
 <br/>
 
+load_nvd3(chart_type, series, render_to=''):
+{% load_nvd3 "pieChart" 1 'container' as nvd3loader %}
+{{ nvd3loader }}
 
-{{ 'SOMEVARIABLE'|superlower }}
