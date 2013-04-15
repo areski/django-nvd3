@@ -1,2 +1,2 @@
-#python-nvd3==0.1.0
+#python-nvd3==0.2.0
 python-nvd3

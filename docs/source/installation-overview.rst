@@ -19,4 +19,3 @@ Install, upgrade and uninstall django-nvd3.py with these commands::
 Or if you don't have `pip`::
 
   $ sudo easy_install django-nvd3
-
