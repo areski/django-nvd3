@@ -44,7 +44,7 @@ setup(
     author_email='areski@gmail.com',
     license='MIT License',
     zip_safe=False,
-    packages=find_packages(exclude=["nvd3_tests", "demoproject", "docs"]),
+    packages=find_packages(exclude=["tests", "demoproject", "docs"]),
     include_package_data=True,
     package_data={},
     install_requires=parse_requirements('requirements.txt'),
