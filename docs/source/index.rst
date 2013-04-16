@@ -8,7 +8,7 @@ Django-nvd3 Documentation!
 
 :Release: |version|
 :Date: |today|
-:Keywords: python, plot, graph, nvd3, d3
+:Keywords: django, python, plot, graph, nvd3, d3
 :Author: Arezqui Belaid
 :Description: Django wrapper for nvd3, build re-usable charts and chart components for d3.js
 

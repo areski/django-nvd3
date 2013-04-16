@@ -18,4 +18,3 @@ Source download
 The source code is currently available on github. Fork away!
 
 http://github.com/areski/django-nvd3
-

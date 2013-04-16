@@ -23,6 +23,7 @@ Overview
 Django-nvd3 is a Django wrapper for NVD3 graph library.
 Visit NVD3 website for futher information : http://nvd3.org/
 
+
 .. _installation:
 
 Installation
@@ -69,7 +70,6 @@ After installation use django-nvd3 as follows ::
     output_file.close()
 
 
-
 Template usage
 --------------
 
@@ -93,12 +93,43 @@ Pie chart
 
 See the demo project in directory 'demoproject' for examples of django-nvd3 usage.
 
-.. _screenshot:
 
-Screenshot
-----------
+.. _supported_charts:
 
-.. image:: https://raw.github.com/areski/django-nvd3/master/screenshot/screenshot-01.png
+Supported nvd3 charts
+---------------------
+
+
+
+.. image:: _static/screenshot/lineWithFocusChart.png
+
+
+.. image:: _static/screenshot/lineChart.png
+
+
+.. image:: _static/screenshot/multiBarChart.png
+
+
+.. image:: _static/screenshot/pieChart.png
+
+
+.. image:: _static/screenshot/stackedAreaChart.png
+
+
+.. image:: _static/screenshot/multiBarHorizontalChart.png
+
+
+.. image:: _static/screenshot/linePlusBarChart.png
+
+
+.. image:: _static/screenshot/cumulativeLineChart.png
+
+
+.. image:: _static/screenshot/discreteBarChart.png
+
+
+.. image:: _static/screenshot/scatterChart.png
+
 
 
 .. _demo:
