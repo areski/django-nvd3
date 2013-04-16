@@ -1,5 +1,5 @@
-Django wrapper for nvd3 - Create beautiful charts effortlessly
-==============================================================
+Django wrapper for nvd3  - It's time for beautiful charts
+=========================================================
 
 :Description: Django-nvd3 is a wrapper for NVD3 graph library
 :nvd3: NVD3 http://nvd3.org/
@@ -11,6 +11,11 @@ for d3.js without taking away the power that d3.js gives you.
 
 
 .. image:: https://www.travis-ci.org/areski/django-nvd3.png?branch=master
+
+|endorse|
+
+.. |endorse| image:: https://api.coderwall.com/areski/endorsecount.png
+   :target: https://coderwall.com/areski
 
 
 Installation
