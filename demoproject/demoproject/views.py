@@ -13,5 +13,4 @@ def home(request):
         'test': 1,
         'chartdata': chartdata
     }
-    return render_to_response('home.html', data,
-           context_instance=RequestContext(request))
+    return render_to_response('home.html', data)
