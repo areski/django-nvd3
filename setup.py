@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-import nvd3
+import django_nvd3
 import os
 import re
 
@@ -35,7 +35,7 @@ def parse_dependency_links(file_name):
 
 setup(
     name='django-nvd3',
-    version=nvd3.__version__,
+    version=django_nvd3.__version__,
     description='django application to display graph with NVD3',
     long_description=README,
     keywords='django, nvd3, chart, graph, d3',

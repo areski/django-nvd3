@@ -1,5 +1,5 @@
 # from common.utils import BaseAuthenticatedClient
-# from nvd3.views import somemethod
+# from django_nvd3.views import somemethod
 
 
 # class NVD3View(BaseAuthenticatedClient):

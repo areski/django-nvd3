@@ -50,7 +50,6 @@ def load_chart(chart_type, series, render_to=''):
     chart.add_serie(y=ydata, x=xdata)
     chart.buildhtml()
 
-
     html_string = chart.htmlheader + '\n' + chart.jschart + '\n' + chart.container
     return mark_safe(html_string)
 
