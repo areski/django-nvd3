@@ -42,7 +42,7 @@ def load_chart(chart_type, series, render_to=''):
 
     - **render_to** - id where the chart needs to be rendered to.
     """
-    print(series)
+    #print(series)
     type = "pieChart"
     chart = pieChart(name=type, height=400, width=400)
     chart.set_containerheader("\n\n<h2>" + type + "</h2>\n\n")
@@ -52,10 +52,9 @@ def load_chart(chart_type, series, render_to=''):
     chart.add_serie(y=ydata, x=xdata)
     chart.buildhtml()
 
-    #jschart
-    #container
-    #htmlheader
-    return mark_safe(chart.htmlcontent)
+
+    html_string = chart.htmlheader + '\n' + chart.jschart + '\n' + chart.container
+    return mark_safe(html_string)
 
 
 # @register.filter(name='cut')
