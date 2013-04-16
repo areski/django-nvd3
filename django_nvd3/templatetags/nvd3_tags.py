@@ -42,12 +42,10 @@ def load_chart(chart_type, series, render_to=''):
 
     - **render_to** - id where the chart needs to be rendered to.
     """
-    #print(series)
-    type = "pieChart"
-    chart = pieChart(name=type, height=400, width=400)
-    chart.set_containerheader("\n\n<h2>" + type + "</h2>\n\n")
-    xdata = ["Orange", "Banana", "Pear", "Kiwi", "Apple", "Strawberry", "Pineapple"]
-    ydata = [3, 4, 0, 1, 5, 7, 3]
+    chart = eval(chart_type)(name=chart_type, height=400, width=400)
+    chart.set_containerheader("\n\n<h2>" + chart_type + "</h2>\n\n")
+    xdata = series['x']
+    ydata = series['y']
 
     chart.add_serie(y=ydata, x=xdata)
     chart.buildhtml()
