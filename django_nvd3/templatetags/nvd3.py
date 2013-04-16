@@ -5,7 +5,6 @@ from django.utils.safestring import mark_safe
 #from django.conf import settings
 #from django.utils.translation import ugettext_lazy as _
 import datetime
-from nvd3 import pieChart
 
 #Usage
 #-----
@@ -42,6 +41,8 @@ def load_chart(chart_type, series, render_to=''):
 
     - **render_to** - id where the chart needs to be rendered to.
     """
+    from nvd3 import pieChart
+
     chart = eval(chart_type)(name=chart_type, height=400, width=400)
     chart.set_containerheader("\n\n<h2>" + chart_type + "</h2>\n\n")
     xdata = series['x']
