@@ -25,35 +25,33 @@ How to Create Charts
 
 Here is a short example of how to create a lineWithFocusChart. Let’s say we have a simple model with the following fields:
 
-...[describe model]
+
+TODO: ...[show some code for model]
 
 
-...[show some view code]
+TODO: ...[show some view code]
 
 
-And you can use the ``load_nvd3`` filter in the django template to render the chart. ::
+And you can use the ``nvd3_tags`` filter in the django template to render the chart. ::
 
-  <head>
-      <!-- code to include the NVD3 and D3 libraries goes here -->
-      <!-- load_nvd3 filter takes a comma-separated list of id's where -->
-      <!-- the charts need to be rendered to                             -->
-      {% load nvd3_graph %}
-      {{ chartname|load_charts:"container" }}
-  </head>
-  <body>
-      <div id='container'> Chart will be rendered here </div>
-  </body>
+::
+
+    {% load nvd3_tags %}
+    <head>
+        <!-- code to include the NVD3 and D3 libraries goes here -->
+        <!-- load_nvd3 filter takes a comma-separated list of id's where -->
+        <!-- the charts need to be rendered to                             -->
+        {% include_nvd3jscss %}
+        {% load_chart "lineWithFocusChart" chartdata "lineWithFocusChart_container" "500" "800" %}
+    </head>
+    <body>
+        <div id="lineWithFocusChart_container"><svg style="height:500px;width:800px;"></svg></div>
+    </body>
 
 ...[show template code]
 
 
 See the sample_project for an example of django-nvd3 usage.
-
-
-Screenshot
-----------
-
-.. image:: https://raw.github.com/areski/django-nvd3/master/screenshot/screenshot-01.png
 
 
 Demo
@@ -62,16 +60,30 @@ Demo
 See a live demo on jsfiddle : http://jsfiddle.net/4KuSx/
 
 
-Supported graph
----------------
+Supported nvd3 charts
+---------------------
 
-Currently implemented nvd3 chart:
+Charts list:
 
-* lineWithFocusChart
-* lineChart
-* multiBarChart
-* pieChart
-* stackedAreaChart
+.. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/lineWithFocusChart.png
+
+.. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/lineChart.png
+
+.. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/multiBarChart.png
+
+.. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/pieChart.png
+
+.. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/stackedAreaChart.png
+
+.. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/multiBarHorizontalChart.png
+
+.. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/linePlusBarChart.png
+
+.. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/cumulativeLineChart.png
+
+.. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/discreteBarChart.png
+
+.. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/scatterChart.png
 
 
 Projects using Django-nvd3

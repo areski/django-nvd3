@@ -91,8 +91,7 @@ Pie chart
     </body>
 
 
-See our demo project in directory 'demoproject' for more examples.
-
+See the demo project in directory 'demoproject' for examples of django-nvd3 usage.
 
 .. _screenshot:
 
