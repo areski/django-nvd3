@@ -10,6 +10,9 @@ NVD3 is an attempt to build re-usable charts and chart components
 for d3.js without taking away the power that d3.js gives you.
 
 
+.. image:: https://www.travis-ci.org/areski/django-nvd3.png?branch=master
+
+
 Installation
 ------------
 
@@ -18,6 +21,14 @@ Install, upgrade and uninstall django-nvd3.py with these commands::
     $ sudo pip install django-nvd3
     $ sudo pip install --upgrade django-nvd3
     $ sudo pip uninstall django-nvd3
+
+
+Dependencies
+------------
+
+Django-nvd3 have one major dependencie:
+
+* python-nvd3 : https://github.com/areski/python-nvd3
 
 
 How to Create Charts
