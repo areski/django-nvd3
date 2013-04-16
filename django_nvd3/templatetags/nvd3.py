@@ -8,16 +8,16 @@ import datetime
 from nvd3 import pieChart
 
 
-  # <head>
-  #     <!-- code to include the NVD3 and D3 libraries goes here -->
-  #     <!-- load_nvd3 filter takes a comma-separated list of id's where -->
-  #     <!-- the charts need to be rendered to                             -->
-  #     {% load nvd3_graph %}
-  #     {{ chartname|load_charts:"container" }}
-  # </head>
-  # <body>
-  #     <div id='container'> Chart will be rendered here </div>
-  # </body>
+# <head>
+#     <!-- code to include the NVD3 and D3 libraries goes here -->
+#     <!-- load_nvd3 filter takes a comma-separated list of id's where -->
+#     <!-- the charts need to be rendered to                             -->
+#     {% load nvd3_graph %}
+#     {{ chartname|load_charts:"container" }}
+# </head>
+# <body>
+#     <div id='container'> Chart will be rendered here </div>
+# </body>
 
 
 @register.assignment_tag(name='load_nvd3')
