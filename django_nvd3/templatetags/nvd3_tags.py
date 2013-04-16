@@ -26,6 +26,13 @@ def load_chart(chart_type, series, container, height=400, width=400):
 
         chart.add_serie(y=ydata, x=xdata)
 
+    elif chart_type == 'lineChart':
+        chart = eval(chart_type)(name=container, height=height, width=width)
+        xdata = series['x']
+        ydata = series['y']
+
+        chart.add_serie(y=ydata, x=xdata)
+
     chart.buildhtml()
 
     html_string = chart.jschart + '\n'

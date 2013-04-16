@@ -7,7 +7,8 @@ from django.conf.urls import patterns, url
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'demoproject.views.home', name='home'),
-    url(r'^piechart/', 'demoproject.views.piechart', name='piechart'),
+    url(r'^piechart/', 'demoproject.views.demo_piechart', name='demo_piechart'),
+    url(r'^linechart/', 'demoproject.views.demo_linechart', name='demo_linechart'),
     # url(r'^demoproject/', include('demoproject.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
