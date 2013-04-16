@@ -78,15 +78,20 @@ Pie chart
 
 ::
 
-    {% nvd3 %}
-        {% nvd3-data dataset %}
-        {% nvd3-size "400x300" %}
-        {% nvd3-type "pieChart" %}
-    {% endnvd3 %}
+    {% load nvd3_tags %}
+    <head>
+        <!-- code to include the NVD3 and D3 libraries goes here -->
+        <!-- load_nvd3 filter takes a comma-separated list of id's where -->
+        <!-- the charts need to be rendered to                             -->
+        {% include_nvd3jscss %}
+        {% load_chart "pieChart" chartdata "piechart_container" "400" "600" %}
+    </head>
+    <body>
+        <div id="piechart_container"><svg style="height:400px;width:600px;"></svg></div>
+    </body>
 
 
-
-See our examples directory for more usage.
+See our demo project in directory 'demoproject' for more examples.
 
 
 .. _screenshot:
