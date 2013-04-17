@@ -8,7 +8,7 @@ from nvd3 import lineWithFocusChart, lineChart, \
 
 
 @register.simple_tag(name='load_chart')
-def load_chart(chart_type, series, container, height=400, width=400, y_is_date=False):
+def load_chart(chart_type, series, container, y_is_date=False):
     """Loads the Chart objects in the container.
 
     **usage**:
@@ -24,7 +24,7 @@ def load_chart(chart_type, series, container, height=400, width=400, y_is_date=F
         * ``width`` - Chart width
         * ``y_is_date`` - if x-axis is in date format
     """
-    chart = eval(chart_type)(name=container, date=y_is_date, height=height, width=width)
+    chart = eval(chart_type)(name=container, date=y_is_date)
     xdata = series['x']
     y_axis_list = [d for d in series.keys() if 'y' in d]
 
