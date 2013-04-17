@@ -22,6 +22,7 @@ def load_chart(chart_type, series, container, height=400, width=400, y_is_date=F
     chart = eval(chart_type)(name=container, date=y_is_date, height=height, width=width)
     xdata = series['x']
     y_axis_list = [d for d in series.keys() if 'y' in d]
+
     for key in y_axis_list:
         ydata = series[key]
         if chart_type == 'linePlusBarChart' and kwargs and key == 'y1':
