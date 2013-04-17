@@ -1,23 +1,28 @@
 from django.template.defaultfilters import register
 from django.utils.safestring import mark_safe
-#from django.conf import settings
-#from django.utils.translation import ugettext_lazy as _
-#import datetime
+from nvd3.NVD3Chart import NVD3Chart
 from nvd3 import lineWithFocusChart, lineChart, \
     multiBarChart, pieChart, stackedAreaChart, \
     multiBarHorizontalChart, linePlusBarChart, \
     cumulativeLineChart, discreteBarChart, scatterChart
-from nvd3.NVD3Chart import NVD3Chart
 
 
 @register.simple_tag(name='load_chart')
 def load_chart(chart_type, series, container, height=400, width=400, y_is_date=False):
     """Loads the Chart objects in the container.
 
+    **usage**:
+
+        {% load_chart "lineWithFocusChart" data_set "div_lineWithFocusChart" 400 400 %}
 
     **Arguments**:
 
-    - **render_to** - id where the chart needs to be rendered to.
+        * ``chart_type`` - Give chart type name eg. lineWithFocusChart/pieChart
+        * ``series`` - Data set which are going to be plotted in chart.
+        * ``container`` - Chart holder in html page.
+        * ``height`` - Chart height
+        * ``width`` - Chart width
+        * ``y_is_date`` - if x-axis is in date format
     """
     chart = eval(chart_type)(name=container, date=y_is_date, height=height, width=width)
     xdata = series['x']
@@ -65,15 +70,20 @@ def include_container(include_container, height=400, width=600):
     Include the html for the chart container and css for nvd3
     This will include something similar as :
         <div id="containername"><svg style="height:400px;width:600px;"></svg></div>
+
+    **usage**:
+
+        {% include_container "lineWithFocusChart" 400 400 %}
+
+    **Arguments**:
+
+        * ``include_container`` - container_name
+        * ``height`` - Chart height
+        * ``width`` - Chart width
     """
-    chart = NVD3Chart()
-    chart.buildhtmlheader()
-    return mark_safe(chart.htmlheader + '\n')
+    chart = NVD3Chart(include_container)
+    chart.height = height
+    chart.width = width
+    chart.buildcontainer()
 
-
-# Template usage
-# {% get_current_time "%Y-%m-%d %I:%M %p" as the_time %}
-# <p>The time is {{ the_time }}.</p>
-# @register.assignment_tag(name='get_current_time')
-# def get_current_time(format_string):
-#     return datetime.datetime.now().strftime(format_string)
+    return mark_safe(chart.container + '\n')
