@@ -138,15 +138,14 @@ def demo_lineplusbarchart(request):
     xdata = map(lambda x: start_time + x * 1000000000, xdata)
     ydata = [i + random.randint(1, 10) for i in range(nb_element)]
     ydata2 = [i + random.randint(1, 10) for i in reversed(range(nb_element))]
-    kwargs = {}
-    kwargs['bar'] = True
+    kwargs1 = {}
+    kwargs1['bar'] = True
 
-    chartdata = {'x': xdata, 'y1': ydata, 'y2': ydata2}
+    chartdata = {'x': xdata, 'y1': ydata, 'kwargs1': kwargs1, 'y2': ydata2}
     charttype = "linePlusBarChart"
     data = {
         'charttype': charttype,
         'chartdata': chartdata,
-        'chartkwargs': kwargs,
     }
     return render_to_response('lineplusbarchart.html', data)
 
@@ -185,3 +184,29 @@ def demo_discretebarchart(request):
         'chartdata': chartdata,
     }
     return render_to_response('discretebarchart.html', data)
+
+
+def demo_scatterchart(request):
+    """
+    scatterchart page
+    """
+    nb_element = 50
+    xdata = [i + random.randint(1, 10) for i in range(nb_element)]
+    ydata1 = [i * random.randint(1, 10) for i in range(nb_element)]
+    ydata2 = map(lambda x: x * 2, ydata1)
+    ydata3 = map(lambda x: x * 5, ydata1)
+
+    kwargs1 = {'shape': 'circle'}
+    kwargs2 = {'shape': 'cross'}
+    kwargs3 = {'shape': 'triangle-up'}
+
+    chartdata = {'x': xdata,
+                 'y1': ydata1, 'kwargs1': kwargs1,
+                 'y2': ydata2, 'kwargs2': kwargs2,
+                 'y3': ydata3, 'kwargs3': kwargs3}
+    charttype = "scatterChart"
+    data = {
+        'charttype': charttype,
+        'chartdata': chartdata,
+    }
+    return render_to_response('scatterchart.html', data)
