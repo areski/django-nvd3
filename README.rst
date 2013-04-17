@@ -21,11 +21,11 @@ for d3.js without taking away the power that d3.js gives you.
 Installation
 ------------
 
-Install, upgrade and uninstall django-nvd3.py with these commands::
+Install, upgrade and uninstall django-nvd3 with these commands::
 
-    $ sudo pip install django-nvd3
-    $ sudo pip install --upgrade django-nvd3
-    $ sudo pip uninstall django-nvd3
+    $ pip install django-nvd3
+    $ pip install --upgrade django-nvd3
+    $ pip uninstall django-nvd3
 
 
 Dependencies
