@@ -36,40 +36,6 @@ Django-nvd3 have one major dependencie:
 * python-nvd3 : https://github.com/areski/python-nvd3
 
 
-How to Create Charts
----------------------
-
-Here is a short example of how to create a lineWithFocusChart. Let’s say we have a simple model with the following fields:
-
-
-TODO: ...[show some code for model]
-
-
-TODO: ...[show some view code]
-
-
-And you can use the ``nvd3_tags`` filter in the django template to render the chart. ::
-
-::
-
-    {% load nvd3_tags %}
-    <head>
-        <!-- code to include the NVD3 and D3 libraries goes here -->
-        <!-- load_nvd3 filter takes a comma-separated list of id's where -->
-        <!-- the charts need to be rendered to                             -->
-        {% include_nvd3jscss %}
-        {% load_chart "lineWithFocusChart" chartdata "lineWithFocusChart_container" "500" "800" %}
-    </head>
-    <body>
-        <div id="lineWithFocusChart_container"><svg style="height:500px;width:800px;"></svg></div>
-    </body>
-
-...[show template code]
-
-
-See the sample_project for an example of django-nvd3 usage.
-
-
 Demo
 ----
 
