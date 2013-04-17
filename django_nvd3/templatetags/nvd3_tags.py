@@ -13,15 +13,13 @@ def load_chart(chart_type, series, container, y_is_date=False):
 
     **usage**:
 
-        {% load_chart "lineWithFocusChart" data_set "div_lineWithFocusChart" 400 400 %}
+        {% load_chart "lineWithFocusChart" data_set "div_lineWithFocusChart" %}
 
     **Arguments**:
 
         * ``chart_type`` - Give chart type name eg. lineWithFocusChart/pieChart
         * ``series`` - Data set which are going to be plotted in chart.
         * ``container`` - Chart holder in html page.
-        * ``height`` - Chart height
-        * ``width`` - Chart width
         * ``y_is_date`` - if x-axis is in date format
     """
     chart = eval(chart_type)(name=container, date=y_is_date)
