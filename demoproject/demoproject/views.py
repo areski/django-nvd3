@@ -89,3 +89,40 @@ def demo_multibarchart(request):
         'chartdata': chartdata
     }
     return render_to_response('multibarchart.html', data)
+
+
+def demo_stackedareachart(request):
+    """
+    stackedareachart page
+    """
+    nb_element = 100
+    xdata = range(nb_element)
+    xdata = map(lambda x: 100 + x, xdata)
+    ydata = [i + random.randint(1, 10) for i in range(nb_element)]
+    ydata2 = map(lambda x: x * 2, ydata)
+
+    chartdata = {'x': xdata, 'y1': ydata, 'y2': ydata2}
+    charttype = "stackedAreaChart"
+    data = {
+        'charttype': charttype,
+        'chartdata': chartdata
+    }
+    return render_to_response('stackedareachart.html', data)
+
+
+def demo_multibarhorizontalchart(request):
+    """
+    multibarhorizontalchart page
+    """
+    nb_element = 10
+    xdata = range(nb_element)
+    ydata = [i + random.randint(-10, 10) for i in range(nb_element)]
+    ydata2 = map(lambda x: x * 2, ydata)
+
+    chartdata = {'x': xdata, 'y1': ydata, 'y2': ydata2}
+    charttype = "multiBarHorizontalChart"
+    data = {
+        'charttype': charttype,
+        'chartdata': chartdata
+    }
+    return render_to_response('multibarhorizontalchart.html', data)
