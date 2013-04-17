@@ -1,5 +1,5 @@
-Django wrapper for nvd3  - It's time for beautiful charts
-=========================================================
+Django Wrapper for NVD3 - It's time for beautiful charts
+========================================================
 
 :Description: Django-nvd3 is a wrapper for NVD3 graph library
 :nvd3: NVD3 http://nvd3.org/
@@ -23,9 +23,19 @@ Installation
 
 Install, upgrade and uninstall django-nvd3.py with these commands::
 
+    #Install
     $ sudo pip install django-nvd3
+
+    #Upgrade
     $ sudo pip install --upgrade django-nvd3
+
+    #Uninstall
     $ sudo pip uninstall django-nvd3
+
+
+Or if you don't have `pip`, use easy_install to install django-nvd3::
+
+    $ sudo easy_install django-nvd3
 
 
 Dependencies
