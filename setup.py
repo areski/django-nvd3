@@ -1,13 +1,12 @@
 from setuptools import setup, find_packages
 import django_nvd3
 import os
+import codecs
 import re
 
 
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
-
-README = read('README.rst')
+def read(*parts):
+    return codecs.open(os.path.join(os.path.dirname(__file__), *parts)).read()
 
 
 def parse_requirements(file_name):
@@ -37,7 +36,7 @@ setup(
     name='django-nvd3',
     version=django_nvd3.__version__,
     description='django application to display graph with NVD3',
-    long_description=README,
+    long_description=read('README.rst'),
     keywords='django, nvd3, chart, graph, d3',
     url='http://github.com/areski/django-nvd3',
     author='Belaid Arezqui',
