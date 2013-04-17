@@ -11,7 +11,7 @@ from nvd3.NVD3Chart import NVD3Chart
 
 
 @register.simple_tag(name='load_chart')
-def load_chart(chart_type, series, container, height=400, width=400, y_is_date=False):
+def load_chart(chart_type, series, container, height=400, width=400, y_is_date=False, kwargs=None):
     """Loads the Chart objects in the container.
 
 
@@ -32,8 +32,10 @@ def load_chart(chart_type, series, container, height=400, width=400, y_is_date=F
         y_axis_list = [d for d in series.keys() if 'y' in d]
         for key in y_axis_list:
             ydata = series[key]
-            #add the serie
-            chart.add_serie(y=ydata, x=xdata)
+            if chart_type == 'linePlusBarChart' and kwargs and key == 'y1':
+                chart.add_serie(y=ydata, x=xdata, **kwargs)
+            else:
+                chart.add_serie(y=ydata, x=xdata)
 
     chart.buildhtml()
 
