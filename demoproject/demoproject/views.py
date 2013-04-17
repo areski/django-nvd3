@@ -169,3 +169,19 @@ def demo_cumulativelinechart(request):
         'chartdata': chartdata,
     }
     return render_to_response('cumulativelinechart.html', data)
+
+
+def demo_discretebarchart(request):
+    """
+    discretebarchart page
+    """
+    xdata = ["A", "B", "C", "D", "E", "F", "G"]
+    ydata = [3, 12, -10, 5, 35, -7, 2]
+
+    chartdata = {'x': xdata, 'y1': ydata}
+    charttype = "discreteBarChart"
+    data = {
+        'charttype': charttype,
+        'chartdata': chartdata,
+    }
+    return render_to_response('discretebarchart.html', data)
