@@ -36,17 +36,15 @@ Django-nvd3 have one major dependencie:
 * python-nvd3 : https://github.com/areski/python-nvd3
 
 
-How to Create Charts
----------------------
+Example how to create a pieChart
+--------------------------------
 
-Here is a short example of how to create a pieChart.
+Let’s say we have a simple view in which we want to display the amount of calories per fruit.
 
+So to achieve this, we will edit our view.py, we will prepare the data that will be displayed::
 
-Let’s say we have a simple view in which we want to display a appreciation value for a list of fruits (I know it's a dumb example).
-So in our view.py, we will prepare the data that will be displayed::
-
-    xdata = ["Orange", "Banana", "Pear", "Kiwi", "Apple", "Strawberry", "Pineapple"]
-    ydata = [3, 4, 0, 1, 5, 7, 3]
+    xdata = ["Apple", "Apricot", "Avocado", "Banana", "Boysenberries", "Blueberries", "Dates", "Grapefruit", "Kiwi", "Lemon"]
+    ydata = [52, 48, 160, 94, 75, 71, 490, 82, 46, 17]
     chartdata = {'x': xdata, 'y': ydata}
     charttype = "pieChart"
     data = {
@@ -56,9 +54,9 @@ So in our view.py, we will prepare the data that will be displayed::
     return render_to_response('piechart.html', data)
 
 
-As showed above we prepare charttype and chartdata, which will be used by in our template.
+We pass charttype and chartdata to use them in our template later.
 
-Here an example of how our template would look like::
+Our template piechart.html could look like::
 
     {% load nvd3_tags %}
     <head>
@@ -69,6 +67,7 @@ Here an example of how our template would look like::
         {% load_chart charttype chartdata "piechart_container" "400" "600" %}
     </head>
     <body>
+        <h1>Fruits vs Calories</h1>
         <div id="piechart_container"><svg style="height:400px;width:600px;"></svg></div>
     </body>
 
@@ -78,6 +77,11 @@ We start preparing and display the javascript code needed to render our pieChart
     {% load_chart charttype chartdata "piechart_container" "400" "600" %}
 
 Finally we created a div container which will be used to display the chart.
+
+
+The result will be a beautiful and interactive chart:
+
+.. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/piechart_fruits_vs_calories.png
 
 
 More examples, please look at the demoproject directory in our repository, it shows an simple example for all the supported
