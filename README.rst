@@ -62,13 +62,13 @@ Our template piechart.html could look like::
     <head>
         <!-- code to include the NVD3 and D3 libraries goes here -->
         <!-- load_nvd3 filter takes a comma-separated list of id's where -->
-        <!-- the charts need to be rendered to                             -->
+        <!-- the charts need to be rendered to -->
         {% include_nvd3jscss %}
-        {% load_chart charttype chartdata "piechart_container" "400" "600" %}
+        {% load_chart charttype chartdata "piechart_container" %}
     </head>
     <body>
         <h1>Fruits vs Calories</h1>
-        <div id="piechart_container"><svg style="height:400px;width:600px;"></svg></div>
+        {% include_container "piechart_container" 400 600 %}
     </body>
 
 As showed above we use include_nvd3jscss to include the needed javascript and css code for NVD3.
