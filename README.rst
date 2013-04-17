@@ -36,6 +36,54 @@ Django-nvd3 have one major dependencie:
 * python-nvd3 : https://github.com/areski/python-nvd3
 
 
+How to Create Charts
+---------------------
+
+Here is a short example of how to create a pieChart.
+
+
+Let’s say we have a simple view in which we want to display a appreciation value for a list of fruits (I know it's a dumb example).
+So in our view.py, we will prepare the data that will be displayed::
+
+    xdata = ["Orange", "Banana", "Pear", "Kiwi", "Apple", "Strawberry", "Pineapple"]
+    ydata = [3, 4, 0, 1, 5, 7, 3]
+    chartdata = {'x': xdata, 'y': ydata}
+    charttype = "pieChart"
+    data = {
+        'charttype': charttype,
+        'chartdata': chartdata
+    }
+    return render_to_response('piechart.html', data)
+
+
+As showed above we prepare charttype and chartdata, which will be used by in our template.
+
+Here an example of how our template would look like::
+
+    {% load nvd3_tags %}
+    <head>
+        <!-- code to include the NVD3 and D3 libraries goes here -->
+        <!-- load_nvd3 filter takes a comma-separated list of id's where -->
+        <!-- the charts need to be rendered to                             -->
+        {% include_nvd3jscss %}
+        {% load_chart charttype chartdata "piechart_container" "400" "600" %}
+    </head>
+    <body>
+        <div id="piechart_container"><svg style="height:400px;width:600px;"></svg></div>
+    </body>
+
+As showed above we use include_nvd3jscss to include the needed javascript and css code for NVD3.
+We start preparing and display the javascript code needed to render our pieChart::
+
+    {% load_chart charttype chartdata "piechart_container" "400" "600" %}
+
+Finally we created a div container which will be used to display the chart.
+
+
+More examples, please look at the demoproject directory in our repository, it shows an simple example for all the supported
+chart by django-nvd3.
+
+
 Demo
 ----
 
