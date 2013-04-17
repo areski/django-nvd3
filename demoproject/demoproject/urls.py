@@ -13,6 +13,7 @@ urlpatterns = patterns('demoproject.views',
     url(r'^multibarchart/', 'demo_multibarchart', name='demo_multibarchart'),
     url(r'^stackedareachart/', 'demo_stackedareachart', name='demo_stackedareachart'),
     url(r'^multibarhorizontalchart/', 'demo_multibarhorizontalchart', name='demo_multibarhorizontalchart'),
+    url(r'^lineplusbarchart/', 'demo_lineplusbarchart', name='demo_lineplusbarchart'),
     # url(r'^demoproject/', include('demoproject.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

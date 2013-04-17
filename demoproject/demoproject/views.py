@@ -126,3 +126,26 @@ def demo_multibarhorizontalchart(request):
         'chartdata': chartdata
     }
     return render_to_response('multibarhorizontalchart.html', data)
+
+
+def demo_lineplusbarchart(request):
+    """
+    lineplusbarchart page
+    """
+    start_time = int(time.mktime(datetime.datetime(2012, 6, 1).timetuple()) * 1000)
+    nb_element = 100
+    xdata = range(nb_element)
+    xdata = map(lambda x: start_time + x * 1000000000, xdata)
+    ydata = [i + random.randint(1, 10) for i in range(nb_element)]
+    ydata2 = [i + random.randint(1, 10) for i in reversed(range(nb_element))]
+    kwargs = {}
+    kwargs['bar'] = True
+
+    chartdata = {'x': xdata, 'y1': ydata, 'y2': ydata2}
+    charttype = "linePlusBarChart"
+    data = {
+        'charttype': charttype,
+        'chartdata': chartdata,
+        'chartkwargs': kwargs,
+    }
+    return render_to_response('lineplusbarchart.html', data)
