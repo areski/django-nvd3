@@ -20,8 +20,9 @@ def demo_piechart(request):
     xdata = ["Orange", "Banana", "Pear", "Kiwi", "Apple", "Strawberry", "Pineapple"]
     ydata = [3, 4, 0, 1, 5, 7, 3]
     chartdata = {'x': xdata, 'y': ydata}
+    charttype = "pieChart"
     data = {
-        'charttype': "pieChart",
+        'charttype': charttype,
         'chartdata': chartdata
     }
     return render_to_response('piechart.html', data)
@@ -39,8 +40,9 @@ def demo_linechart(request):
     ydata2 = map(lambda x: x * 2, ydata)
 
     chartdata = {'x': xdata, 'y1': ydata, 'y2': ydata2}
+    charttype = "lineChart"
     data = {
-        'charttype': "lineChart",
+        'charttype': charttype,
         'chartdata': chartdata
     }
     return render_to_response('linechart.html', data)
@@ -61,8 +63,29 @@ def demo_linewithfocuschart(request):
     ydata4 = map(lambda x: x * 4, ydata)
 
     chartdata = {'x': xdata, 'y1': ydata, 'y2': ydata2, 'y3': ydata3, 'y4': ydata4}
+    charttype = "lineWithFocusChart"
     data = {
-        'charttype': "lineWithFocusChart",
+        'charttype': charttype,
         'chartdata': chartdata
     }
     return render_to_response('linewithfocuschart.html', data)
+
+
+def demo_multibarchart(request):
+    """
+    multibarchart page
+    """
+    nb_element = 10
+    xdata = range(nb_element)
+    ydata = [random.randint(1, 10) for i in range(nb_element)]
+    ydata2 = map(lambda x: x * 2, ydata)
+    ydata3 = map(lambda x: x * 3, ydata)
+    ydata4 = map(lambda x: x * 4, ydata)
+
+    chartdata = {'x': xdata, 'y1': ydata, 'y2': ydata2, 'y3': ydata3, 'y4': ydata4}
+    charttype = "multiBarChart"
+    data = {
+        'charttype': charttype,
+        'chartdata': chartdata
+    }
+    return render_to_response('multibarchart.html', data)
