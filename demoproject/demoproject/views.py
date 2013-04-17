@@ -21,6 +21,7 @@ def demo_piechart(request):
     ydata = [3, 4, 0, 1, 5, 7, 3]
     chartdata = {'x': xdata, 'y': ydata}
     data = {
+        'charttype': "pieChart",
         'chartdata': chartdata
     }
     return render_to_response('piechart.html', data)
@@ -39,6 +40,29 @@ def demo_linechart(request):
 
     chartdata = {'x': xdata, 'y1': ydata, 'y2': ydata2}
     data = {
+        'charttype': "lineChart",
         'chartdata': chartdata
     }
     return render_to_response('linechart.html', data)
+
+
+def demo_linewithfocuschart(request):
+    """
+    linewithfocuschart page
+    """
+    nb_element = 100
+    start_time = int(time.mktime(datetime.datetime(2012, 6, 1).timetuple()) * 1000)
+
+    xdata = range(nb_element)
+    xdata = map(lambda x: start_time + x * 1000000000, xdata)
+    ydata = [i + random.randint(1, 10) for i in range(nb_element)]
+    ydata2 = map(lambda x: x * 2, ydata)
+    ydata3 = map(lambda x: x * 3, ydata)
+    ydata4 = map(lambda x: x * 4, ydata)
+
+    chartdata = {'x': xdata, 'y1': ydata, 'y2': ydata2, 'y3': ydata3, 'y4': ydata4}
+    data = {
+        'charttype': "lineWithFocusChart",
+        'chartdata': chartdata
+    }
+    return render_to_response('linewithfocuschart.html', data)

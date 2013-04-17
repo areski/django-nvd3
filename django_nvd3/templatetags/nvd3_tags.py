@@ -26,7 +26,7 @@ def load_chart(chart_type, series, container, height=400, width=400, y_is_date=F
 
         chart.add_serie(y=ydata, x=xdata)
 
-    elif chart_type == 'lineChart':
+    elif chart_type == 'lineChart' or chart_type == 'lineWithFocusChart':
         chart = eval(chart_type)(name=container, date=y_is_date, height=height, width=width)
         xdata = series['x']
         for i in range(50):

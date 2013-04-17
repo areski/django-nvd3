@@ -4,11 +4,12 @@ from django.conf.urls import patterns, url
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns('demoproject.views',
     # Examples:
-    url(r'^$', 'demoproject.views.home', name='home'),
-    url(r'^piechart/', 'demoproject.views.demo_piechart', name='demo_piechart'),
-    url(r'^linechart/', 'demoproject.views.demo_linechart', name='demo_linechart'),
+    url(r'^$', 'home', name='home'),
+    url(r'^piechart/', 'demo_piechart', name='demo_piechart'),
+    url(r'^linechart/', 'demo_linechart', name='demo_linechart'),
+    url(r'^linewithfocuschart/', 'demo_linewithfocuschart', name='demo_linewithfocuschart'),
     # url(r'^demoproject/', include('demoproject.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
