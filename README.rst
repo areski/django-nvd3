@@ -54,9 +54,9 @@ So to achieve this, we will edit our view.py, we will prepare the data that will
     return render_to_response('piechart.html', data)
 
 
-We pass charttype and chartdata to use them in our template later.
+We will render the template 'piechart.html' with a dictionary 'data' which contains 'charttype' and 'chartdata'.
 
-Our template piechart.html could look like::
+Our template piechart.html could look like this::
 
     {% load nvd3_tags %}
     <head>
@@ -84,8 +84,8 @@ The result will be a beautiful and interactive chart:
 .. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/piechart_fruits_vs_calories.png
 
 
-More examples, please look at the demoproject directory in our repository, it shows an simple example for all the supported
-chart by django-nvd3.
+For more examples, please look at the demoproject directory in our repository, it shows an simple example for all the supported
+charts by django-nvd3.
 
 
 Demo
