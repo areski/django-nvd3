@@ -88,8 +88,8 @@ For more examples, please look at the demoproject directory in our repository, i
 charts by django-nvd3.
 
 
-Demo
-----
+Live demo of NVD3
+-----------------
 
 See a live demo on jsfiddle : http://jsfiddle.net/4KuSx/
 

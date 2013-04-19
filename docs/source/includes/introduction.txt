@@ -85,8 +85,6 @@ See the demo project in directory 'demoproject' for examples of django-nvd3 usag
 Supported nvd3 charts
 ---------------------
 
-
-
 .. image:: _static/screenshot/lineWithFocusChart.png
 
 
@@ -117,11 +115,10 @@ Supported nvd3 charts
 .. image:: _static/screenshot/scatterChart.png
 
 
+.. _live_demo:
 
-.. _demo:
-
-Demo
-----
+Live demo of NVD3
+-----------------
 
 See a live demo on jsfiddle : http://jsfiddle.net/4KuSx/
 
