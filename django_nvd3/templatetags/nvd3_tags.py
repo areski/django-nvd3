@@ -28,19 +28,25 @@ def load_chart(chart_type, series, container, y_is_date=False):
 
     for key in y_axis_list:
         ydata = series[key]
+        axis_no = key.split('y')[1]
+
+        name = series['name' + axis_no] if series.get('name' + axis_no) else None
+        extra = series['extra' + axis_no] if series.get('extra' + axis_no) else ''
+
         if chart_type == 'linePlusBarChart':
             if key == 'y1':
                 kwargs = series['kwargs1']
-                chart.add_serie(y=ydata, x=xdata, **kwargs)
+                chart.add_serie(name=name, y=ydata, x=xdata, extra=extra, **kwargs)
             else:
-                chart.add_serie(y=ydata, x=xdata)
+                chart.add_serie(name=name, y=ydata, x=xdata, extra=extra)
         elif chart_type == 'scatterChart':
             # get digit
-            axis_no = key.split('y')[1]
             kwargs = series['kwargs' + axis_no]
-            chart.add_serie(y=ydata, x=xdata, **kwargs)
+            chart.add_serie(name=name, y=ydata, x=xdata, extra=extra, **kwargs)
+        elif chart_type == 'pieChart':
+            chart.add_serie(y=ydata, x=xdata, extra=extra)
         else:
-            chart.add_serie(y=ydata, x=xdata)
+            chart.add_serie(name=name, y=ydata, x=xdata, extra=extra)
 
     chart.buildhtml()
 

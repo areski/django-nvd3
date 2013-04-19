@@ -19,11 +19,14 @@ def demo_piechart(request):
     """
     xdata = ["Apple", "Apricot", "Avocado", "Banana", "Boysenberries", "Blueberries", "Dates", "Grapefruit", "Kiwi", "Lemon"]
     ydata = [52, 48, 160, 94, 75, 71, 490, 82, 46, 17]
-    chartdata = {'x': xdata, 'y': ydata}
+
+    extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"}}
+    chartdata = {'x': xdata, 'y1': ydata, 'extra1': extra_serie}
     charttype = "pieChart"
+
     data = {
         'charttype': charttype,
-        'chartdata': chartdata
+        'chartdata': chartdata,
     }
     return render_to_response('piechart.html', data)
 
@@ -39,7 +42,10 @@ def demo_linechart(request):
     ydata = [i + random.randint(1, 10) for i in range(nb_element)]
     ydata2 = map(lambda x: x * 2, ydata)
 
-    chartdata = {'x': xdata, 'y1': ydata, 'y2': ydata2}
+    extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"}}
+    chartdata = {'x': xdata,
+                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
+                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie}
     charttype = "lineChart"
     data = {
         'charttype': charttype,
