@@ -31,7 +31,7 @@ def load_chart(chart_type, series, container, y_is_date=False):
         axis_no = key.split('y')[1]
 
         name = series['name' + axis_no] if series.get('name' + axis_no) else None
-        extra = series['extra' + axis_no] if series.get('extra' + axis_no) else ''
+        extra = series['extra' + axis_no] if series.get('extra' + axis_no) else {}
 
         if chart_type == 'linePlusBarChart':
             if key == 'y1':
