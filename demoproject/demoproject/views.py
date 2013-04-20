@@ -9,7 +9,6 @@ def home(request):
     """
     home page
     """
-
     return render_to_response('home.html')
 
 
