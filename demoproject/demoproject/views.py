@@ -70,11 +70,13 @@ def demo_linewithfocuschart(request):
 
     extra_serie = {"tooltip": {"y_start": "There are ", "y_end": " calls"}}
 
-    chartdata = {'x': xdata,
-                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
-                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie,
-                 'name3': 'series 3', 'y3': ydata3, 'extra3': extra_serie,
-                 'name4': 'series 4', 'y4': ydata4, 'extra4': extra_serie,}
+    chartdata = {
+        'x': xdata,
+        'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
+        'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie,
+        'name3': 'series 3', 'y3': ydata3, 'extra3': extra_serie,
+        'name4': 'series 4', 'y4': ydata4, 'extra4': extra_serie
+    }
     charttype = "lineWithFocusChart"
     data = {
         'charttype': charttype,
@@ -96,11 +98,13 @@ def demo_multibarchart(request):
 
     extra_serie = {"tooltip": {"y_start": "There are ", "y_end": " calls"}}
 
-    chartdata = {'x': xdata,
-                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
-                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie,
-                 'name3': 'series 3', 'y3': ydata3, 'extra3': extra_serie,
-                 'name4': 'series 4', 'y4': ydata4, 'extra4': extra_serie,}
+    chartdata = {
+        'x': xdata,
+        'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
+        'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie,
+        'name3': 'series 3', 'y3': ydata3, 'extra3': extra_serie,
+        'name4': 'series 4', 'y4': ydata4, 'extra4': extra_serie
+    }
 
     charttype = "multiBarChart"
     data = {
@@ -123,10 +127,11 @@ def demo_stackedareachart(request):
     extra_serie1 = {"tooltip": {"y_start": "", "y_end": " balls"}}
     extra_serie2 = {"tooltip": {"y_start": "", "y_end": " calls"}}
 
-    chartdata = {'x': xdata,
-                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie1,
-                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie2,
-                }
+    chartdata = {
+        'x': xdata,
+        'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie1,
+        'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie2,
+    }
     charttype = "stackedAreaChart"
     data = {
         'charttype': charttype,
@@ -146,10 +151,11 @@ def demo_multibarhorizontalchart(request):
 
     extra_serie = {"tooltip": {"y_start": "", "y_end": " mins"}}
 
-    chartdata = {'x': xdata,
-                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
-                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie,
-                }
+    chartdata = {
+        'x': xdata,
+        'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
+        'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie,
+    }
 
     charttype = "multiBarHorizontalChart"
     data = {
@@ -175,10 +181,11 @@ def demo_lineplusbarchart(request):
     extra_serie1 = {"tooltip": {"y_start": "$ ", "y_end": ""}}
     extra_serie2 = {"tooltip": {"y_start": "", "y_end": " min"}}
 
-    chartdata = {'x': xdata,
-                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie1, 'kwargs1': kwargs1,
-                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie2,
-                }
+    chartdata = {
+        'x': xdata,
+        'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie1, 'kwargs1': kwargs1,
+        'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie2,
+    }
 
     charttype = "linePlusBarChart"
     data = {
@@ -202,10 +209,11 @@ def demo_cumulativelinechart(request):
     extra_serie1 = {"tooltip": {"y_start": "", "y_end": " calls"}}
     extra_serie2 = {"tooltip": {"y_start": "", "y_end": " min"}}
 
-    chartdata = {'x': xdata,
-                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie1,
-                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie2,
-                }
+    chartdata = {
+        'x': xdata,
+        'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie1,
+        'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie2,
+    }
 
     charttype = "cumulativeLineChart"
     data = {
@@ -223,9 +231,9 @@ def demo_discretebarchart(request):
     ydata = [3, 12, -10, 5, 35, -7, 2]
 
     extra_serie1 = {"tooltip": {"y_start": "", "y_end": " cal"}}
-    chartdata = {'x': xdata,
-                 'name1': '', 'y1': ydata, 'extra1': extra_serie1,
-                }
+    chartdata = {
+        'x': xdata, 'name1': '', 'y1': ydata, 'extra1': extra_serie1,
+    }
     charttype = "discreteBarChart"
     data = {
         'charttype': charttype,
@@ -250,10 +258,12 @@ def demo_scatterchart(request):
 
     extra_serie1 = {"tooltip": {"y_start": "", "y_end": " balls"}}
 
-    chartdata = {'x': xdata,
-                 'name1': 'series 1', 'y1': ydata1, 'kwargs1': kwargs1, 'extra1': extra_serie1,
-                 'name2': 'series 2', 'y2': ydata2, 'kwargs2': kwargs2, 'extra2': extra_serie1,
-                 'name3': 'series 3', 'y3': ydata3, 'kwargs3': kwargs3, 'extra3': extra_serie1,}
+    chartdata = {
+        'x': xdata,
+        'name1': 'series 1', 'y1': ydata1, 'kwargs1': kwargs1, 'extra1': extra_serie1,
+        'name2': 'series 2', 'y2': ydata2, 'kwargs2': kwargs2, 'extra2': extra_serie1,
+        'name3': 'series 3', 'y3': ydata3, 'kwargs3': kwargs3, 'extra3': extra_serie1
+    }
     charttype = "scatterChart"
     data = {
         'charttype': charttype,

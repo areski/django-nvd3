@@ -19,6 +19,7 @@ Contents:
     :maxdepth: 2
 
     introduction
+    chart-classes
     resources
 
 
