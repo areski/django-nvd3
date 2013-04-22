@@ -27,6 +27,8 @@ Install, upgrade and uninstall django-nvd3 with these commands::
     $ pip install --upgrade django-nvd3
     $ pip uninstall django-nvd3
 
+Then edit settings.py from your django project and add 'django_nvd3' in your 'INSTALLED_APPS' setting.
+
 
 Dependencies
 ------------
