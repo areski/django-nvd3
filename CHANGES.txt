@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.1.6 (2013-04-23)
+------------------
+
+* add color_category : Define color category (eg. category10, category20, category20c)
+
+
 0.1.5 (2013-04-23)
 ------------------
 

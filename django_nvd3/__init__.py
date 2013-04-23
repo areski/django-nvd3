@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-VERSION = (0, 1, 5, "")
+VERSION = (0, 1, 6, "")
 __version__ = ".".join(map(str, VERSION[0:3])) + "".join(VERSION[3:])
 __author__ = "Arezqui Belaid"
 __contact__ = "areski@gmail.com"
