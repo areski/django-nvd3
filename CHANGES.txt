@@ -5,6 +5,12 @@ Changelog
 0.1.1 (2013-04-22)
 ------------------
 
+* change dependencies to python-nvd3 to version 0.3 instead of 0.3.3
+
+
+0.1.1 (2013-04-22)
+------------------
+
 * change dependencies to python-nvd3 version - fix lineChart tooltip
 
 
