@@ -89,8 +89,8 @@ def include_container(include_container, height=400, width=600):
         * ``width`` - Chart width
     """
     chart = NVD3Chart(include_container)
-    chart.height = height
-    chart.width = width
+    chart.set_graph_height(height)
+    chart.set_graph_width(width)
     chart.buildcontainer()
 
     return mark_safe(chart.container + '\n')
