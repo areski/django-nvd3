@@ -2,7 +2,13 @@ Changelog
 =========
 
 
-0.1.1 (2013-04-22)
+0.1.4 (2013-04-23)
+------------------
+
+* add tag_script_js : disable javascript <script> tag
+
+
+0.1.2 (2013-04-22)
 ------------------
 
 * change dependencies to python-nvd3 to version 0.3 instead of 0.3.3
@@ -17,21 +23,21 @@ Changelog
 0.1 (2013-04-XX)
 ----------------
 
-    * Proper project release including support for the following chart:
+* Proper project release including support for the following chart:
 
-        lineWithFocusChart
-        lineChart
-        multiBarChart
-        pieChart
-        stackedAreaChart
-        multiBarHorizontalChart
-        linePlusBarChart
-        cumulativeLineChart
-        discreteBarChart
-        scatterChart
+    lineWithFocusChart
+    lineChart
+    multiBarChart
+    pieChart
+    stackedAreaChart
+    multiBarHorizontalChart
+    linePlusBarChart
+    cumulativeLineChart
+    discreteBarChart
+    scatterChart
 
 
 0.0.1 (2013-04-09)
 ------------------
 
-    * First release
+* First release
