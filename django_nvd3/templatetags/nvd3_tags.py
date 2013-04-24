@@ -21,7 +21,7 @@ def load_chart(chart_type, series, container, x_is_date=False, x_axis_date_forma
         * ``series`` - Data set which are going to be plotted in chart.
         * ``container`` - Chart holder in html page.
         * ``x_is_date`` - if x-axis is in date format
-        * ``x_axis_date_format`` - display x-axis date in various format
+        * ``x_axis_date_format`` - display x-axis date in various format ie "%d %b %Y"
         * ``tag_script_js`` - if show the javascript tag <script>
         * ``color_category`` - Define color category (eg. category10, category20, category20c)
     """
