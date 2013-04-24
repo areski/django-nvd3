@@ -27,7 +27,9 @@ Django example::
         ydata = [i + random.randint(1, 10) for i in range(nb_element)]
         ydata2 = map(lambda x: x * 2, ydata)
 
-        extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"}}
+        tooltip_date = "%d %b %Y %H:%M:%S %p"
+        extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"},
+                       "date_format": tooltip_date}
         chartdata = {'x': xdata,
                      'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
                      'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie}
@@ -47,7 +49,7 @@ Template example::
         <!-- load_nvd3 filter takes a comma-separated list of id's where -->
         <!-- the charts need to be rendered to                             -->
         {% include_nvd3jscss %}
-        {% load_chart charttype chartdata "linechart_container" True %}
+        {% load_chart charttype chartdata "linechart_container" True "%d %b %Y %H" %}
     </head>
     <body>
         {% include_container "linechart_container" 400 600 %}
