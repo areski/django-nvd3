@@ -8,7 +8,7 @@ from nvd3 import lineWithFocusChart, lineChart, \
 
 
 @register.simple_tag(name='load_chart')
-def load_chart(chart_type, series, container, x_is_date=False, tag_script_js=True, color_category='category20'):
+def load_chart(chart_type, series, container, x_is_date=False, x_axis_date_format="%d %b %Y", tag_script_js=True, color_category='category20'):
     """Loads the Chart objects in the container.
 
     **usage**:
@@ -21,10 +21,11 @@ def load_chart(chart_type, series, container, x_is_date=False, tag_script_js=Tru
         * ``series`` - Data set which are going to be plotted in chart.
         * ``container`` - Chart holder in html page.
         * ``x_is_date`` - if x-axis is in date format
+        * ``x_axis_date_format`` - display x-axis date in various format
         * ``tag_script_js`` - if show the javascript tag <script>
         * ``color_category`` - Define color category (eg. category10, category20, category20c)
     """
-    chart = eval(chart_type)(name=container, date=x_is_date, color_category=color_category)
+    chart = eval(chart_type)(name=container, date=x_is_date, x_axis_date_format=x_axis_date_format, color_category=color_category)
     #don't show the javascript tag <script>
     if not tag_script_js:
         chart.tag_script_js = False
