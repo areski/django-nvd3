@@ -31,8 +31,11 @@ Django example::
         kwargs1 = {}
         kwargs1['bar'] = True
 
-        extra_serie1 = {"tooltip": {"y_start": "$ ", "y_end": ""}}
-        extra_serie2 = {"tooltip": {"y_start": "", "y_end": " min"}}
+        tooltip_date = "%d %b %Y %H:%M:%S %p"
+        extra_serie1 = {"tooltip": {"y_start": "$ ", "y_end": ""},
+                        "date_format": tooltip_date}
+        extra_serie2 = {"tooltip": {"y_start": "", "y_end": " min"},
+                        "date_format": tooltip_date}
 
         chartdata = {
             'x': xdata,
@@ -55,7 +58,7 @@ Template example::
         <!-- load_nvd3 filter takes a comma-separated list of id's where -->
         <!-- the charts need to be rendered to                             -->
         {% include_nvd3jscss %}
-        {% load_chart charttype chartdata "lineplusbarchart_container" True %}
+        {% load_chart charttype chartdata "lineplusbarchart_container" True "%d %b %Y %H" %}
     </head>
     <body>
         {% include_container "lineplusbarchart_container" 400 600 %}

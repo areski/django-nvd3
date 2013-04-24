@@ -181,8 +181,11 @@ def demo_lineplusbarchart(request):
     kwargs1 = {}
     kwargs1['bar'] = True
 
-    extra_serie1 = {"tooltip": {"y_start": "$ ", "y_end": ""}}
-    extra_serie2 = {"tooltip": {"y_start": "", "y_end": " min"}}
+    tooltip_date = "%d %b %Y %H:%M:%S %p"
+    extra_serie1 = {"tooltip": {"y_start": "$ ", "y_end": ""},
+                    "date_format": tooltip_date}
+    extra_serie2 = {"tooltip": {"y_start": "", "y_end": " min"},
+                    "date_format": tooltip_date}
 
     chartdata = {
         'x': xdata,
@@ -209,8 +212,11 @@ def demo_cumulativelinechart(request):
     ydata = [i + random.randint(1, 10) for i in range(nb_element)]
     ydata2 = map(lambda x: x * 2, ydata)
 
-    extra_serie1 = {"tooltip": {"y_start": "", "y_end": " calls"}}
-    extra_serie2 = {"tooltip": {"y_start": "", "y_end": " min"}}
+    tooltip_date = "%d %b %Y %H:%M:%S %p"
+    extra_serie1 = {"tooltip": {"y_start": "", "y_end": " calls"},
+                    "date_format": tooltip_date}
+    extra_serie2 = {"tooltip": {"y_start": "", "y_end": " min"},
+                    "date_format": tooltip_date}
 
     chartdata = {
         'x': xdata,
