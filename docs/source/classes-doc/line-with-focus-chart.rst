@@ -32,8 +32,9 @@ Django example::
         ydata3 = map(lambda x: x * 3, ydata)
         ydata4 = map(lambda x: x * 4, ydata)
 
-        extra_serie = {"tooltip": {"y_start": "There are ", "y_end": " calls"}}
-
+        tooltip_date = "%d %b %Y %H:%M:%S %p"
+        extra_serie = {"tooltip": {"y_start": "There are ", "y_end": " calls"},
+                       "date_format": tooltip_date}
         chartdata = {
             'x': xdata,
             'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
@@ -57,7 +58,7 @@ Template example::
         <!-- load_nvd3 filter takes a comma-separated list of id's where -->
         <!-- the charts need to be rendered to                             -->
         {% include_nvd3jscss %}
-        {% load_chart charttype chartdata "linewithfocuschart_container" True %}
+        {% load_chart charttype chartdata "linewithfocuschart_container" True "%d %b %Y %H" %}
     </head>
     <body>
         {% include_container "linewithfocuschart_container" 400 '100%' %}
