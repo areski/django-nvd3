@@ -1,5 +1,6 @@
 from django.template.defaultfilters import register
 from django.utils.safestring import mark_safe
+from django.conf import settings
 from nvd3.NVD3Chart import NVD3Chart
 from nvd3 import lineWithFocusChart, lineChart, \
     multiBarChart, pieChart, stackedAreaChart, \
@@ -61,7 +62,7 @@ def load_chart(chart_type, series, container, x_is_date=False, x_axis_date_forma
 
 
 @register.simple_tag(name='include_nvd3jscss')
-def include_nvd3jscss():
+def include_nvd3jscss(use_cdn=True, static_folder_name=''):
     """
     Include the javascript and css for nvd3
     This include :
@@ -70,7 +71,13 @@ def include_nvd3jscss():
         * nv.d3.css
     """
     chart = NVD3Chart()
-    chart.buildhtmlheader()
+    if use_cdn:
+        chart.buildhtmlheader()
+    else:
+        chart.header_css = [settings.STATIC_URL + static_folder_name + '/css/nv.d3.css']
+        chart.header_js = [settings.STATIC_URL + static_folder_name +'/js/d3.v2.js',
+                           settings.STATIC_URL + static_folder_name +'/js/nv.d3.js']
+        chart.buildhtmlheader()
     return mark_safe(chart.htmlheader + '\n')
 
 
