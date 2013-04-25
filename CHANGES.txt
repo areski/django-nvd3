@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.1.8 (2013-04-25)
+------------------
+
+* Option to use cdn or use local file for the JS and CSS
+
 
 0.1.7 (2013-04-24)
 ------------------
