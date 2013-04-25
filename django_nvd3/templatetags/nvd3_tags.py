@@ -71,13 +71,11 @@ def include_nvd3jscss(use_cdn=True):
         * nv.d3.css
     """
     chart = NVD3Chart()
-    if use_cdn:
-        chart.buildhtmlheader()
-    else:
+    if not use_cdn:
         chart.header_css = [settings.STATIC_URL +  'nvd3/css/nv.d3.css']
         chart.header_js = [settings.STATIC_URL + 'nvd3/js/d3.v2.js',
                            settings.STATIC_URL + 'nvd3/js/nv.d3.js']
-        chart.buildhtmlheader()
+    chart.buildhtmlheader()
     return mark_safe(chart.htmlheader + '\n')
 
 
