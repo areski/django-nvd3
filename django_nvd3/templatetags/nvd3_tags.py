@@ -26,6 +26,8 @@ def load_chart(chart_type, series, container, x_is_date=False, x_axis_date_forma
         * ``tag_script_js`` - if show the javascript tag <script>
         * ``color_category`` - Define color category (eg. category10, category20, category20c)
     """
+    if not chart_type:
+        return False
     chart = eval(chart_type)(name=container, date=x_is_date, x_axis_date_format=x_axis_date_format, color_category=color_category)
     #don't show the javascript tag <script>
     if not tag_script_js:

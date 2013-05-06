@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.1.9 (2013-04-06)
+------------------
+
+* Make sure we got something in chartype parameter / help the test
+
+
 0.1.8 (2013-04-25)
 ------------------
 
