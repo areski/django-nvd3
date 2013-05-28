@@ -17,9 +17,13 @@ def demo_piechart(request):
     """
     pieChart page
     """
+    color_list = ['orange', 'yellow', '#C5E946',
+                  '#95b43f', 'red', '#FF2259',
+                  '#F6A641', '#95b43f', '#FF2259', 'yellow']
+    extra_serie = {"color_list": color_list}
     xdata = ["Apple", "Apricot", "Avocado", "Banana", "Boysenberries", "Blueberries", "Dates", "Grapefruit", "Kiwi", "Lemon"]
     ydata = [52, 48, 160, 94, 75, 71, 490, 82, 46, 17]
-    chartdata = {'x': xdata, 'y': ydata}
+    chartdata = {'x': xdata, 'y': ydata, 'extra': extra_serie}
     charttype = "pieChart"
     data = {
         'charttype': charttype,
