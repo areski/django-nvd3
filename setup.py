@@ -1,12 +1,11 @@
 from setuptools import setup, find_packages
 import django_nvd3
 import os
-import codecs
 import re
 
 
 def read(*parts):
-    return codecs.open(os.path.join(os.path.dirname(__file__), *parts)).read()
+    return open(os.path.join(os.path.dirname(__file__), *parts)).read()
 
 
 def parse_requirements(file_name):
