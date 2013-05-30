@@ -2,10 +2,14 @@
 <head>
     <!-- code to include the NVD3 and D3 libraries goes here -->
     <!-- load_nvd3 filter takes a comma-separated list of id's where -->
-    <!-- the charts need to be rendered to                             -->
+    <!-- the charts need to be rendered to -->
     {% include_nvd3jscss %}
     {% load_chart charttype chartdata "multibarchart_container" %}
+    {% load_chart charttype date_chartdata "date_multibarchart_container" True "%d %b %y" %}
 </head>
 <body>
     {% include_container "multibarchart_container" 400 600 %}
+    <p></p>
+    {% include_container "date_multibarchart_container" 400 600 %}
+
 </body>

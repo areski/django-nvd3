@@ -109,10 +109,28 @@ def demo_multibarchart(request):
         'name4': 'series 4', 'y4': ydata4, 'extra4': extra_serie
     }
 
+    nb_element = 100
+    start_time = int(time.mktime(datetime.datetime(2012, 6, 1).timetuple()) * 1000)
+    xdata = range(nb_element)
+    xdata = map(lambda x: start_time + x * 1000000000, xdata)
+    ydata = [i + random.randint(1, 10) for i in range(nb_element)]
+    ydata2 = map(lambda x: x * 2, ydata)
+
+    tooltip_date = "%d %b %Y %H:%M:%S %p"
+    extra_serie = {"tooltip": {"y_start": "There are ", "y_end": " calls"},
+                   "date_format": tooltip_date}
+
+    date_chartdata = {
+        'x': xdata,
+        'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
+        'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie,
+    }
+
     charttype = "multiBarChart"
     data = {
         'charttype': charttype,
-        'chartdata': chartdata
+        'chartdata': chartdata,
+        'date_chartdata': date_chartdata,
     }
     return render_to_response('multibarchart.html', data)
 
