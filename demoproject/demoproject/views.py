@@ -297,3 +297,30 @@ def demo_scatterchart(request):
         'chartdata': chartdata,
     }
     return render_to_response('scatterchart.html', data)
+
+
+def demo_linechart_with_ampm(request):
+    """
+    lineChart page
+    """
+    xdata = []
+    ydata = []
+    ydata2 = []
+
+    ydata = [0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 4, 3, 3, 5, 7, 5, 3, 16, 6, 9, 15, 4, 12]
+    ydata2 = [9, 8, 11, 8, 3, 7, 10, 8, 6, 6, 9, 6, 5, 4, 3, 10, 0, 6, 3, 1, 0, 0, 0, 1]
+
+    for i in range(0, 24):
+        xdata.append(i)
+
+    tooltip_date = ""#"%d %b %Y %H:%M:%S %p"
+    extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"}}
+    chartdata = {'x': xdata,
+                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
+                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie}
+    charttype = "lineChart"
+    data = {
+        'charttype': charttype,
+        'chartdata': chartdata
+    }
+    return render_to_response('linechart_with_ampm.html', data)
