@@ -136,6 +136,12 @@ Documentation is available on 'Read the Docs':
 http://django-nvd3.readthedocs.org
 
 
+Changelog
+---------
+
+Changelog summary : https://github.com/areski/python-nvd3/blob/master/CHANGELOG.rst
+
+
 License
 -------
 
