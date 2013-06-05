@@ -139,7 +139,7 @@ http://django-nvd3.readthedocs.org
 Changelog
 ---------
 
-Changelog summary : https://github.com/areski/python-nvd3/blob/master/CHANGELOG.rst
+Changelog summary : https://github.com/areski/django-nvd3/blob/master/CHANGELOG.rst
 
 
 License
