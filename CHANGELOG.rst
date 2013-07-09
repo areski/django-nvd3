@@ -1,6 +1,13 @@
 Changelog
 =========
 
+
+0.1.12 (2013-07-09)
+------------------
+
+* Generalise the axis_formatting
+
+
 0.1.11 (2013-05-30)
 ------------------
 
@@ -28,37 +35,37 @@ Changelog
 0.1.7 (2013-04-24)
 ------------------
 
-* add custom dateformat for tooltip : ``x_axis_date_format`` - display x-axis date in various format ie "%d %b %Y"
+* Add custom dateformat for tooltip : ``x_axis_date_format`` - display x-axis date in various format ie "%d %b %Y"
 
 
 0.1.6 (2013-04-23)
 ------------------
 
-* add color_category : Define color category (eg. category10, category20, category20c)
+* Add color_category : Define color category (eg. category10, category20, category20c)
 
 
 0.1.5 (2013-04-23)
 ------------------
 
-* fix set height and width useset_graph_height and set_graph_width
+* Fix set height and width useset_graph_height and set_graph_width
 
 
 0.1.4 (2013-04-23)
 ------------------
 
-* add tag_script_js : disable javascript <script> tag
+* Add tag_script_js : disable javascript <script> tag
 
 
 0.1.2 (2013-04-22)
 ------------------
 
-* change dependencies to python-nvd3 to version 0.3 instead of 0.3.3
+* Change dependencies to python-nvd3 to version 0.3 instead of 0.3.3
 
 
 0.1.1 (2013-04-22)
 ------------------
 
-* change dependencies to python-nvd3 version - fix lineChart tooltip
+* Change dependencies to python-nvd3 version - fix lineChart tooltip
 
 
 0.1 (2013-04-XX)
