@@ -1,8 +1,16 @@
 Changelog
 =========
 
+
+0.3.1 (2013-09-30)
+------------------
+
+* Documentation / Readme update
+
+
 0.3.0 (2013-09-30)
 ------------------
+
 * Use Bower to install D3 and NVD3
 
 
