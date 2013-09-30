@@ -89,12 +89,13 @@ We will render the template 'piechart.html' with a dictionary 'data' which conta
 
 Our template piechart.html could look like this::
 
+    {% load static %}
+    <link media="all" href="{% static 'nvd3/src/nv.d3.css' %}" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src='{% static 'd3/d3.min.js' %}'></script>
+    <script type="text/javascript" src='{% static 'nvd3/nv.d3.min.js' %}'></script>
+
     {% load nvd3_tags %}
     <head>
-        <!-- code to include the NVD3 and D3 libraries goes here -->
-        <!-- load_nvd3 filter takes a comma-separated list of id's where -->
-        <!-- the charts need to be rendered to -->
-        {% include_nvd3jscss %}
         {% load_chart charttype chartdata "piechart_container" %}
     </head>
     <body>
@@ -102,7 +103,7 @@ Our template piechart.html could look like this::
         {% include_container "piechart_container" 400 600 %}
     </body>
 
-As showed above we use include_nvd3jscss to include the needed javascript and css code for NVD3.
+We use include the Javascript and CSS code for D3/NVD3.
 We start preparing and display the javascript code needed to render our pieChart::
 
     {% load_chart charttype chartdata "piechart_container" %}
