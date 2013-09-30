@@ -38,6 +38,35 @@ Django-nvd3 have one major dependencie:
 * python-nvd3 : https://github.com/areski/python-nvd3
 
 
+Bower will be used to install D3 and NvD3, see bower website for futher info : http://bower.io/
+
+Bower depends on Node and npm. It's installed globally using npm::
+
+    npm install -g bower
+
+To easy the integration with Django we will advice you to use django-bower.
+
+For instance to run our demo project, you will install the dependencies from requirements.txt and then
+install django-bower. Django-bower is not a mandatory dependencies as the user should be free to install JS files
+using different method.
+
+To install django-bower::
+
+    $ pip install django-bower
+
+Read the documentation about Django-bower to find out how to configure it properly for your project: https://github.com/nvbn/django-bower
+
+Then in the demo project directory just type the following::
+
+    $ python manage.py bower_install
+    $ python manage.py collectstatic
+
+This will create a directory "components" where d3 & nvd3 will be installed.
+
+You can see example settings file in `demoproject <https://github.com/areski/django-nvd3/blob/master/demoproject/demoproject/settings.py>`_.
+
+
+
 Example how to create a pieChart
 --------------------------------
 

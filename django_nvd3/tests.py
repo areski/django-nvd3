@@ -1,4 +1,4 @@
-from templatetags.nvd3_tags import load_chart, include_nvd3jscss, include_container
+from templatetags.nvd3_tags import load_chart, include_container
 import unittest
 
 
@@ -11,7 +11,6 @@ class NVD3TemplateTagsTestCase(unittest.TestCase):
         charttype = "pieChart"
 
         self.assertTrue(load_chart(charttype, chartdata, 'container', y_is_date=False))
-        self.assertTrue(include_nvd3jscss())
         self.assertTrue(include_container('container', height=400, width=600))
 
 

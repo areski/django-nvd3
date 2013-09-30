@@ -63,32 +63,6 @@ def load_chart(chart_type, series, container, x_is_date=False, x_axis_format="%d
     return mark_safe(html_string)
 
 
-@register.simple_tag(name='include_nvd3jscss')
-def include_nvd3jscss(use_cdn=True):
-    """
-    Include the javascript and css for nvd3
-    This will include something similar as :
-        <link media="all" href="http://nvd3.org/src/nv.d3.css" type="text/css" rel="stylesheet" />
-        <script src="http://nvd3.org/lib/d3.v2.js" type="text/javascript"></script>
-        <script src="http://nvd3.org/nv.d3.js" type="text/javascript"></script>
-
-    **usage**:
-
-        {% include_nvd3jscss True %}
-
-    **Arguments**:
-
-        * ``use_cdn`` - option to use the public cdn or link to static folder
-    """
-    chart = NVD3Chart()
-    if not use_cdn:
-        chart.header_css = [settings.STATIC_URL + 'nvd3/css/nv.d3.css']
-        chart.header_js = [settings.STATIC_URL + 'nvd3/js/d3.v2.js',
-                           settings.STATIC_URL + 'nvd3/js/nv.d3.js']
-    chart.buildhtmlheader()
-    return mark_safe(chart.htmlheader + '\n')
-
-
 @register.simple_tag(name='include_container')
 def include_container(include_container, height=400, width=600):
     """
