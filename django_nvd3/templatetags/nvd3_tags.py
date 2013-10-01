@@ -5,7 +5,7 @@ from nvd3.NVD3Chart import NVD3Chart
 from nvd3 import lineWithFocusChart, lineChart, \
     multiBarChart, pieChart, stackedAreaChart, \
     multiBarHorizontalChart, linePlusBarChart, \
-    cumulativeLineChart, discreteBarChart, scatterChart
+    cumulativeLineChart, discreteBarChart, scatterChart, linePlusBarWithFocusChart
 
 
 @register.simple_tag(name='load_chart')
@@ -42,7 +42,7 @@ def load_chart(chart_type, series, container, x_is_date=False, x_axis_format="%d
         name = series['name' + axis_no] if series.get('name' + axis_no) else None
         extra = series['extra' + axis_no] if series.get('extra' + axis_no) else {}
 
-        if chart_type == 'linePlusBarChart':
+        if chart_type == 'linePlusBarChart' or chart_type == 'linePlusBarWithFocusChart':
             if key == 'y1':
                 kwargs = series['kwargs1']
                 chart.add_serie(name=name, y=ydata, x=xdata, extra=extra, **kwargs)

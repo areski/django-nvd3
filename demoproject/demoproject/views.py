@@ -335,7 +335,7 @@ def demo_linechart_with_ampm(request):
     for i in range(0, 24):
         xdata.append(i)
 
-    tooltip_date = ""#"%d %b %Y %H:%M:%S %p"
+    #tooltip_date = ""  # "%d %b %Y %H:%M:%S %p"
     extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"}}
     chartdata = {'x': xdata,
                  'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
@@ -346,3 +346,38 @@ def demo_linechart_with_ampm(request):
         'chartdata': chartdata
     }
     return render_to_response('linechart_with_ampm.html', data)
+
+
+def demo_lineplusbarwithfocuschart(request):
+    """
+    lineplusbarwithfocuschart page
+    """
+    start_time = int(time.mktime(datetime.datetime(2012, 6, 1).timetuple()) * 1000)
+    nb_element = 100
+
+    xdata = list(range(nb_element))
+    xdata = [start_time + x * 1000000000 for x in xdata]
+    ydata = [i + random.randint(-10, 10) for i in range(nb_element)]
+    ydata2 = [x * 2 for x in ydata]
+
+    kwargs1 = {}
+    kwargs1['bar'] = True
+
+    tooltip_date = "%d %b %Y %H:%M:%S %p"
+    extra_serie1 = {"tooltip": {"y_start": "$ ", "y_end": ""},
+                    "date_format": tooltip_date}
+    extra_serie2 = {"tooltip": {"y_start": "", "y_end": " min"},
+                    "date_format": tooltip_date}
+
+    chartdata = {
+        'x': xdata,
+        'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie1, 'kwargs1': kwargs1,
+        'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie2,
+    }
+
+    charttype = "linePlusBarWithFocusChart"
+    data = {
+        'charttype': charttype,
+        'chartdata': chartdata,
+    }
+    return render_to_response('lineplusbarwithfocuschart.html', data)
