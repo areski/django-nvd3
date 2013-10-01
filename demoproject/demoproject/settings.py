@@ -189,3 +189,10 @@ BOWER_INSTALLED_APPS = (
     'd3#3.3.6',
     'nvd3#1.1.12-beta',
 )
+
+#IMPORT LOCAL SETTINGS
+#=====================
+try:
+    from settings_local import *
+except ImportError:
+    pass
