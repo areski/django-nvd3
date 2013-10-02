@@ -86,3 +86,36 @@ def include_container(include_container, height=400, width=600):
     chart.buildcontainer()
 
     return mark_safe(chart.container + '\n')
+
+
+@register.simple_tag(name='include_chart_jscss')
+def include_chart_jscss():
+    """
+    Include the html for the chart container and css for nvd3
+    This will include something similar as :
+
+        <link media="all" href="/static/nvd3/src/nv.d3.css" type="text/css" rel="stylesheet" />
+        <script src="/static/d3/d3.min.js" type="text/javascript"></script>
+        <script src="/static/nvd3/nv.d3.min.js" type="text/javascript"></script>
+
+    **usage**:
+
+        {% include_chart_jscss %}
+    """
+    chart = NVD3Chart()
+    chart.header_css = [
+        '<link media="all" href="%s" type="text/css" rel="stylesheet" />\n' % h for h in
+        (
+            settings.STATIC_URL + "nvd3/src/nv.d3.css",
+        )
+    ]
+
+    chart.header_js = [
+        '<script src="%s" type="text/javascript"></script>\n' % h for h in
+        (
+            settings.STATIC_URL + "d3/d3.min.js",
+            settings.STATIC_URL + "nvd3/nv.d3.min.js"
+        )
+    ]
+    chart.buildhtmlheader()
+    return mark_safe(chart.htmlheader + '\n')

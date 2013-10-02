@@ -1,10 +1,6 @@
-{% load static %}
-<link media="all" href="{% static 'nvd3/src/nv.d3.css' %}" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src='{% static 'd3/d3.min.js' %}'></script>
-<script type="text/javascript" src='{% static 'nvd3/nv.d3.min.js' %}'></script>
-
 {% load nvd3_tags %}
 <head>
+    {% include_chart_jscss %}
     {% load_chart charttype chartdata "discretebarchart_container" %}
 </head>
 <body>
