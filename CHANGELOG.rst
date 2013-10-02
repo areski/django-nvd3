@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+0.4.0 (2013-10-03)
+------------------
+
+* Support new chart linePlusBarWithFocusChart
+
+
 0.3.1 (2013-09-30)
 ------------------
 
