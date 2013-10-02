@@ -24,10 +24,11 @@ Django example::
         """
         start_time = int(time.mktime(datetime.datetime(2012, 6, 1).timetuple()) * 1000)
         nb_element = 100
-        xdata = range(nb_element)
-        xdata = map(lambda x: start_time + x * 1000000000, xdata)
-        ydata = [i + random.randint(1, 10) for i in range(nb_element)]
-        ydata2 = [i + random.randint(1, 10) for i in reversed(range(nb_element))]
+        xdata = list(range(nb_element))
+        xdata = [start_time + x * 1000000000 for x in xdata]
+        ydata = [i + random.randint(-10, 10) for i in range(nb_element)]
+        ydata2 = [x * 2 for x in ydata]
+
         kwargs1 = {}
         kwargs1['bar'] = True
 
