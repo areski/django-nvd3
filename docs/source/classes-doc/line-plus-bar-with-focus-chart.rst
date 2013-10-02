@@ -27,7 +27,7 @@ Django example::
         xdata = list(range(nb_element))
         xdata = [start_time + x * 1000000000 for x in xdata]
         ydata = [i + random.randint(-10, 10) for i in range(nb_element)]
-        ydata2 = [x * 2 for x in ydata]
+        ydata2 = [200 - i + random.randint(-10, 10) for i in range(nb_element)]
 
         kwargs1 = {}
         kwargs1['bar'] = True
