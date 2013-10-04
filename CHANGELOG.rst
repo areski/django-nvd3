@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+0.4.1 (2013-10-04)
+------------------
+
+* discreteBarChart support date on xAxis
+
+
 0.4.0 (2013-10-03)
 ------------------
 
