@@ -1,0 +1,8 @@
+{% load nvd3_tags %}
+<head>
+    {% include_chart_jscss %}
+    {% load_chart charttype chartdata "discretebarchart_container" True "%d-%b" %}
+</head>
+<body>
+    {% include_container "discretebarchart_container" 400 800 %}
+</body>

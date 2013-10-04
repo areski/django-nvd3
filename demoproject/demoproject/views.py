@@ -291,6 +291,29 @@ def demo_discretebarchart(request):
     return render_to_response('discretebarchart.html', data)
 
 
+def demo_discretebarchart_with_date(request):
+    """
+    discretebarchart page
+    """
+    start_time = int(time.mktime(datetime.datetime(2012, 6, 1).timetuple()) * 1000)
+    nb_element = 10
+
+    xdata = list(range(nb_element))
+    xdata = [start_time + x * 1000000000 for x in xdata]
+    ydata = [i + random.randint(1, 10) for i in range(nb_element)]
+
+    extra_serie1 = {"tooltip": {"y_start": "", "y_end": " cal"}}
+    chartdata = {
+        'x': xdata, 'name1': '', 'y1': ydata, 'extra1': extra_serie1,
+    }
+    charttype = "discreteBarChart"
+    data = {
+        'charttype': charttype,
+        'chartdata': chartdata,
+    }
+    return render_to_response('discretebarchart_with_date.html', data)
+
+
 def demo_scatterchart(request):
     """
     scatterchart page
