@@ -34,7 +34,7 @@ def parse_dependency_links(file_name):
 setup(
     name='django-nvd3',
     version=django_nvd3.__version__,
-    description="Django NVD3",
+    description="Django NVD3 - Chart Library for d3.js",
     long_description=read('README.rst'),
     keywords='django, nvd3, chart, graph, d3',
     url='http://github.com/areski/django-nvd3',
