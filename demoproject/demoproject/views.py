@@ -53,7 +53,7 @@ def demo_linechart(request):
     data = {
         'charttype': charttype,
         'chartdata': chartdata,
-        'date_tag' : True,
+        'date_tag': True,
     }
     return render_to_response('linechart.html', data)
 
@@ -65,14 +65,15 @@ def demo_linechart_without_date(request):
     extra_serie = {}
     xdata = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     ydata = [3, 5, 7, 8, 3, 5, 3, 5, 7, 6, 3, 1]
-    chartdata = {'x': xdata,
-                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
-                }
+    chartdata = {
+        'x': xdata,
+        'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
+    }
     charttype = "lineChart"
     data = {
         'charttype': charttype,
         'chartdata': chartdata,
-        'date_tag' : False,
+        'date_tag': False,
     }
     return render_to_response('linechart.html', data)
 
