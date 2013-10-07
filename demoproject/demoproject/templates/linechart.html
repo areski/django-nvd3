@@ -1,11 +1,9 @@
 {% load nvd3_tags %}
 <head>
     {% include_chart_jscss %}
-    {% if date_tag %}
-        {% load_chart charttype chartdata "linechart_container" True "%d %b %Y %H" %}
-    {% else %}
-        {% load_chart charttype chartdata "linechart_container" %}
-    {% endif %}
+    {# Jquery CDN : Needed when using jquery_on_ready=True #}
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    {% load_chart charttype chartdata "linechart_container" extra %}
 </head>
 <body>
     {% include_container "linechart_container" 400 600 %}

@@ -36,7 +36,7 @@ def demo_linechart(request):
     lineChart page
     """
     start_time = int(time.mktime(datetime.datetime(2012, 6, 1).timetuple()) * 1000)
-    nb_element = 100
+    nb_element = 150
     xdata = range(nb_element)
     xdata = map(lambda x: start_time + x * 1000000000, xdata)
     ydata = [i + random.randint(1, 10) for i in range(nb_element)]
@@ -50,10 +50,16 @@ def demo_linechart(request):
                  'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie}
 
     charttype = "lineChart"
+
     data = {
         'charttype': charttype,
         'chartdata': chartdata,
-        'date_tag': True,
+        'extra': {
+            'x_is_date': True,
+            'x_axis_format': '%d %b %Y %H',
+            'tag_script_js': False,
+            'jquery_on_ready': True,
+        }
     }
     return render_to_response('linechart.html', data)
 
