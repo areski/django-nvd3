@@ -93,15 +93,8 @@ def include_container(include_container, height=400, width=600):
         * ``height`` - Chart height
         * ``width`` - Chart width
     """
-    kwargs = {}
-    if not 'include_container' in kwargs:
-        kwargs['include_container'] = 'container_name'
-    if not 'height' in kwargs:
-        kwargs['height'] = "400"
-    if not 'width' in kwargs:
-        kwargs['width'] = "600"
-
-    chart = NVD3Chart(**kwargs)
+    chart = NVD3Chart()
+    chart.name = include_container
     chart.set_graph_height(height)
     chart.set_graph_width(width)
     chart.buildcontainer()

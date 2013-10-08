@@ -50,15 +50,17 @@ def demo_linechart(request):
                  'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie}
 
     charttype = "lineChart"
-
+    chartcontainer = 'linechart_container'  # container name
     data = {
         'charttype': charttype,
         'chartdata': chartdata,
+        'chartcontainer': chartcontainer,
         'extra': {
+            'name': chartcontainer,
             'x_is_date': True,
             'x_axis_format': '%d %b %Y %H',
             'tag_script_js': False,
-            'jquery_on_ready': True,
+            'jquery_on_ready': False,
         }
     }
     return render_to_response('linechart.html', data)
