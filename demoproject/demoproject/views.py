@@ -56,7 +56,6 @@ def demo_linechart(request):
         'chartdata': chartdata,
         'chartcontainer': chartcontainer,
         'extra': {
-            'name': chartcontainer,
             'x_is_date': True,
             'x_axis_format': '%d %b %Y %H',
             'tag_script_js': False,

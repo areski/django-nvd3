@@ -39,6 +39,8 @@ def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
         kw_extra['color_category'] = "category20"
     if not 'tag_script_js' in kw_extra:
         kw_extra['tag_script_js'] = True
+    #set the container name
+    kw_extra['name'] = container
 
     chart = eval(chart_type)(**kw_extra)
 
