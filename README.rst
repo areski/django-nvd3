@@ -73,9 +73,17 @@ So to achieve this, we will edit our view.py, we will prepare the data that will
     ydata = [52, 48, 160, 94, 75, 71, 490, 82, 46, 17]
     chartdata = {'x': xdata, 'y': ydata}
     charttype = "pieChart"
+    chartcontainer = 'piechart_container'
     data = {
         'charttype': charttype,
-        'chartdata': chartdata
+        'chartdata': chartdata,
+        'chartcontainer': chartcontainer,
+        'extra': {
+            'x_is_date': False,
+            'x_axis_format': '',
+            'tag_script_js': False,
+            'jquery_on_ready': False,
+        }
     }
     return render_to_response('piechart.html', data)
 
@@ -87,11 +95,11 @@ Our template piechart.html could look like this::
     {% load nvd3_tags %}
     <head>
         {% include_chart_jscss %}
-        {% load_chart charttype chartdata "piechart_container" %}
+        {% load_chart charttype chartdata chartcontainer extra %}
     </head>
     <body>
         <h1>Fruits vs Calories</h1>
-        {% include_container "piechart_container" 400 600 %}
+        {% include_container chartcontainer 400 600 %}
     </body>
 
 We use include the Javascript and CSS code for D3/NVD3.
