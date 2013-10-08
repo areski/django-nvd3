@@ -1,9 +1,9 @@
 {% load nvd3_tags %}
 <head>
     {% include_chart_jscss %}
-    {% load_chart charttype chartdata "piechart_container" %}
+    {% load_chart charttype chartdata chartcontainer extra %}
 </head>
 <body>
     <h1>Fruits vs Calories</h1>
-    {% include_container "piechart_container" 400 500 %}
+    {% include_container chartcontainer %}
 </body>

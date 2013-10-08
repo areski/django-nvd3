@@ -1,12 +1,14 @@
 {% load nvd3_tags %}
 <head>
+    {# Jquery CDN : Needed when using jquery_on_ready=True #}
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     {% include_chart_jscss %}
-    {% load_chart charttype chartdata "multibarchart_container" %}
-    {% load_chart charttype date_chartdata "date_multibarchart_container" True "%d %b %y" %}
+    {% load_chart charttype chartdata chartcontainer extra %}
+    {% load_chart charttype chartdata_with_date chartcontainer_with_date extra_with_date %}
 </head>
 <body>
-    {% include_container "multibarchart_container" 400 600 %}
+    {% include_container chartcontainer 400 600 %}
     <p></p>
-    {% include_container "date_multibarchart_container" 400 600 %}
+    {% include_container chartcontainer_with_date 400 600 %}
 
 </body>
