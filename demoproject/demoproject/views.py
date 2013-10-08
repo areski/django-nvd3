@@ -364,9 +364,17 @@ def demo_discretebarchart(request):
         'x': xdata, 'name1': '', 'y1': ydata, 'extra1': extra_serie1,
     }
     charttype = "discreteBarChart"
+    chartcontainer = 'discretebarchart_container'  # container name
     data = {
         'charttype': charttype,
         'chartdata': chartdata,
+        'chartcontainer': chartcontainer,
+        'extra': {
+            'x_is_date': False,
+            'x_axis_format': '',
+            'tag_script_js': True,
+            'jquery_on_ready': True,
+        },
     }
     return render_to_response('discretebarchart.html', data)
 
@@ -387,9 +395,17 @@ def demo_discretebarchart_with_date(request):
         'x': xdata, 'name1': '', 'y1': ydata, 'extra1': extra_serie1,
     }
     charttype = "discreteBarChart"
+    chartcontainer = 'discretebarchart_container'  # container name
     data = {
         'charttype': charttype,
         'chartdata': chartdata,
+        'chartcontainer': chartcontainer,
+        'extra': {
+            'x_is_date': True,
+            'x_axis_format': '%d-%b',
+            'tag_script_js': True,
+            'jquery_on_ready': True,
+        },
     }
     return render_to_response('discretebarchart_with_date.html', data)
 
@@ -417,9 +433,17 @@ def demo_scatterchart(request):
         'name3': 'series 3', 'y3': ydata3, 'kwargs3': kwargs3, 'extra3': extra_serie1
     }
     charttype = "scatterChart"
+    chartcontainer = 'scatterchart_container'  # container name
     data = {
         'charttype': charttype,
         'chartdata': chartdata,
+        'chartcontainer': chartcontainer,
+        'extra': {
+            'x_is_date': True,
+            'x_axis_format': '%d-%b',
+            'tag_script_js': True,
+            'jquery_on_ready': True,
+        },
     }
     return render_to_response('scatterchart.html', data)
 
@@ -487,8 +511,16 @@ def demo_lineplusbarwithfocuschart(request):
     }
 
     charttype = "linePlusBarWithFocusChart"
+    chartcontainer = 'lineplusbarwithfocuschart_container'  # container name
     data = {
         'charttype': charttype,
         'chartdata': chartdata,
+        'chartcontainer': chartcontainer,
+        'extra': {
+            'x_is_date': True,
+            'x_axis_format': '%d %b %Y %H',
+            'tag_script_js': True,
+            'jquery_on_ready': True,
+        },
     }
     return render_to_response('lineplusbarwithfocuschart.html', data)
