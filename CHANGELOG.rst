@@ -2,10 +2,11 @@ Changelog
 =========
 
 
-0.5.0 (2013-10-05)
+0.5.0 (2013-10-09)
 ------------------
 
 * change settings behavior, now it works with a global extra settings passed as kwargs
+* refactoring
 
 
 0.4.1 (2013-10-04)
