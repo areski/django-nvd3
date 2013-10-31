@@ -32,7 +32,7 @@ def demo_piechart(request):
         'extra': {
             'x_is_date': False,
             'x_axis_format': '',
-            'tag_script_js': False,
+            'tag_script_js': True,
             'jquery_on_ready': False,
         }
     }
@@ -66,7 +66,7 @@ def demo_linechart(request):
         'extra': {
             'x_is_date': True,
             'x_axis_format': '%d %b %Y %H',
-            'tag_script_js': False,
+            'tag_script_js': True,
             'jquery_on_ready': False,
         }
     }
@@ -93,7 +93,7 @@ def demo_linechart_without_date(request):
         'extra': {
             'x_is_date': False,
             'x_axis_format': '',
-            'tag_script_js': False,
+            'tag_script_js': True,
             'jquery_on_ready': False,
         }
     }
