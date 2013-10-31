@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+0.6.0 (2013-10-31)
+------------------
+
+* fixes on demo project to include js tag in html
+* update on simple_tag to work with Django 1.3
+
+
 0.5.0 (2013-10-09)
 ------------------
 
