@@ -8,7 +8,7 @@ from nvd3 import lineWithFocusChart, lineChart, \
     cumulativeLineChart, discreteBarChart, scatterChart, linePlusBarWithFocusChart
 
 
-@register.simple_tag(name='load_chart')
+@register.simple_tag
 def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
     """Loads the Chart objects in the container.
 
