@@ -76,7 +76,7 @@ def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
     return mark_safe(html_string)
 
 
-@register.simple_tag(name='include_container')
+@register.simple_tag
 def include_container(include_container, height=400, width=600):
     """
     Include the html for the chart container and css for nvd3
@@ -102,7 +102,7 @@ def include_container(include_container, height=400, width=600):
     return mark_safe(chart.container + '\n')
 
 
-@register.simple_tag(name='include_chart_jscss')
+@register.simple_tag
 def include_chart_jscss(static_dir=''):
     """
     Include the html for the chart container and css for nvd3
