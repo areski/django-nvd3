@@ -47,6 +47,7 @@ def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
 
     xdata = series['x']
     y_axis_list = [d for d in series.keys() if 'y' in d]
+    y_axis_list.sort()
 
     for key in y_axis_list:
         ydata = series[key]
