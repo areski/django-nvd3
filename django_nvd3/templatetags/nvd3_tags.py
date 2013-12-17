@@ -41,7 +41,7 @@ def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
     if not 'tag_script_js' in kw_extra:
         kw_extra['tag_script_js'] = True
     if not 'chart_attr' in kw_extra:
-        kw_extra['chart_attr'] = None
+        kw_extra['chart_attr'] = {}
     # set the container name
     kw_extra['name'] = container
 
