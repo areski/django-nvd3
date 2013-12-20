@@ -20,7 +20,11 @@ def demo_piechart(request):
     xdata = ["Apple", "Apricot", "Avocado", "Banana", "Boysenberries", "Blueberries", "Dates", "Grapefruit", "Kiwi", "Lemon"]
     ydata = [52, 48, 160, 94, 75, 71, 490, 82, 46, 17]
 
-    extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"}}
+    color_list = ['#5d8aa8', '#e32636', '#efdecd', '#ffbf00', '#ff033e', '#a4c639', '#b2beb5', '#8db600', '#7fffd4', '#ff007f', '#ff55a3', '#5f9ea0']
+    extra_serie = {
+        "tooltip": {"y_start": "", "y_end": " cal"},
+        "color_list": color_list
+    }
     chartdata = {'x': xdata, 'y1': ydata, 'extra1': extra_serie}
     charttype = "pieChart"
     chartcontainer = 'piechart_container'  # container name
@@ -51,11 +55,19 @@ def demo_linechart(request):
     ydata2 = map(lambda x: x * 2, ydata)
 
     tooltip_date = "%d %b %Y %H:%M:%S %p"
-    extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"},
-                   "date_format": tooltip_date}
+    extra_serie1 = {
+        "tooltip": {"y_start": "", "y_end": " cal"},
+        "date_format": tooltip_date,
+        'color': '#a4c639'
+    }
+    extra_serie2 = {
+        "tooltip": {"y_start": "", "y_end": " cal"},
+        "date_format": tooltip_date,
+        'color': '#FF8aF8'
+    }
     chartdata = {'x': xdata,
-                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
-                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie}
+                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie1,
+                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie2}
 
     charttype = "lineChart"
     chartcontainer = 'linechart_container'  # container name
