@@ -23,9 +23,11 @@ def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
         * ``container`` - Chart holder in html page.
 
     **kw_extra settings**::
-        * ``x_is_date`` - if x-axis is in date format
-        * ``x_axis_format`` - display x-axis date in various format ie "%d %b %Y"
-        * ``tag_script_js`` - if show the javascript tag <script>
+        * ``x_is_date`` - if enabled the x-axis will be display as date format
+        * ``x_axis_format`` - set the x-axis date format, ie. "%d %b %Y"
+        * ``tag_script_js`` - if enabled it will add the javascript tag '<script>'
+        * ``jquery_on_ready`` - if enabled it will load the javascript only when page is loaded
+            this will use jquery library, so make sure to add jquery to the template.
         * ``color_category`` - Define color category (eg. category10, category20, category20c)
     """
     if not chart_type:

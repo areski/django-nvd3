@@ -81,7 +81,7 @@ So to achieve this, we will edit our view.py, we will prepare the data that will
         'extra': {
             'x_is_date': False,
             'x_axis_format': '',
-            'tag_script_js': False,
+            'tag_script_js': True,
             'jquery_on_ready': False,
         }
     }
@@ -89,6 +89,14 @@ So to achieve this, we will edit our view.py, we will prepare the data that will
 
 
 We will render the template 'piechart.html' with a dictionary 'data' which contains 'charttype' and 'chartdata'.
+'extra' will contains a list of additional settings::
+    * ``x_is_date`` - if enabled the x-axis will be display as date format
+    * ``x_axis_format`` - set the x-axis date format, ie. "%d %b %Y"
+    * ``tag_script_js`` - if enabled it will add the javascript tag '<script>'
+    * ``jquery_on_ready`` - if enabled it will load the javascript only when page is loaded
+        this will use jquery library, so make sure to add jquery to the template.
+    * ``color_category`` - Define color category (eg. category10, category20, category20c)
+
 
 Our template piechart.html could look like this::
 
@@ -107,7 +115,7 @@ We start preparing and display the javascript code needed to render our pieChart
 
     {% load_chart charttype chartdata "piechart_container" %}
 
-Finally we created a div container which will be used to display the chart.
+Finally we create a div container which will be used to display the chart.
 
 
 The result will be a beautiful and interactive chart:
