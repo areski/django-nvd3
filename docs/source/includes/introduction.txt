@@ -31,15 +31,50 @@ Installation
 
 Install, upgrade and uninstall django-nvd3.py with these commands::
 
-  $ sudo pip install django-nvd3
-  $ sudo pip install --upgrade django-nvd3
-  $ sudo pip uninstall django-nvd3
-
-Or if you don't have `pip`::
-
-  $ sudo easy_install django-nvd3
+  $ pip install django-nvd3
+  $ pip install --upgrade django-nvd3
+  $ pip uninstall django-nvd3
 
 
+.. _dependencies:
+
+Dependencies
+------------
+
+Django-nvd3 have one major dependencie:
+
+* python-nvd3 : https://github.com/areski/python-nvd3
+
+
+Bower will be used to install D3 and NvD3, see bower website for futher info : http://bower.io/
+
+Bower depends on Node and npm. It's installed globally using npm::
+
+    npm install -g bower
+
+To easy the integration with Django we will advice you to use django-bower.
+
+For instance to run our demo project, you will install the dependencies from requirements.txt and then
+install django-bower. Django-bower is not a mandatory dependencies as the user should be free to install JS files
+using different method.
+
+To install django-bower::
+
+    $ pip install django-bower
+
+Read the documentation about Django-bower to find out how to configure it properly for your project: https://github.com/nvbn/django-bower
+
+Then in the demo project directory just type the following::
+
+    $ python manage.py bower_install
+    $ python manage.py collectstatic
+
+This will create a directory "components" where d3 & nvd3 will be installed.
+
+You can see example settings file in `demoproject <https://github.com/areski/django-nvd3/blob/master/demoproject/demoproject/settings.py>`_.
+
+
+.. _howto_create_piechart:
 
 Example how to create a pieChart
 --------------------------------
@@ -60,16 +95,24 @@ So to achieve this, we will edit our view.py, we will prepare the data that will
         'extra': {
             'x_is_date': False,
             'x_axis_format': '',
-            'tag_script_js': False,
+            'tag_script_js': True,
             'jquery_on_ready': False,
         }
     }
     return render_to_response('piechart.html', data)
 
 
-We pass charttype and chartdata to use them in our template later.
+We will render the template 'piechart.html' with a dictionary 'data' which contains 'charttype' and 'chartdata'.
+'extra' will contains a list of additional settings::
+    * ``x_is_date`` - if enabled the x-axis will be display as date format
+    * ``x_axis_format`` - set the x-axis date format, ie. "%d %b %Y"
+    * ``tag_script_js`` - if enabled it will add the javascript tag '<script>'
+    * ``jquery_on_ready`` - if enabled it will load the javascript only when page is loaded
+        this will use jquery library, so make sure to add jquery to the template.
+    * ``color_category`` - Define color category (eg. category10, category20, category20c)
 
-Our template piechart.html could look like::
+
+Our template piechart.html could look like this::
 
     {% load nvd3_tags %}
     <head>
@@ -81,8 +124,22 @@ Our template piechart.html could look like::
         {% include_container chartcontainer 400 600 %}
     </body>
 
+We use include the Javascript and CSS code for D3/NVD3.
+We start preparing and display the javascript code needed to render our pieChart::
+
+    {% load_chart charttype chartdata "piechart_container" %}
+
+Finally we create a div container which will be used to display the chart.
 
 See the demo project in directory 'demoproject' for examples of django-nvd3 usage.
+
+
+.. _live_demo:
+
+Live demo of NVD3
+-----------------
+
+See a live demo on jsfiddle : http://jsfiddle.net/areski/z4zuH/3/
 
 
 .. _supported_charts:
@@ -123,21 +180,30 @@ Supported nvd3 charts
 .. image:: _static/screenshot/linePlusBarWithFocusChart.png
 
 
-.. _live_demo:
+.. _projects_using_django_nvd3:
 
-Live demo of NVD3
------------------
+Projects using Django-nvd3
+--------------------------
 
-See a live demo on jsfiddle : http://jsfiddle.net/areski/z4zuH/3/
+* CDR-Stats : www.cdr-stats.org
+* Newfies-Dialer : www.newfies-dialer.org
 
 
 .. _documentation:
 
 Documentation
-=============
+-------------
 
 Documentation is available on 'Read the Docs':
 http://django-nvd3.readthedocs.org
+
+
+.. _changelog:
+
+Changelog
+---------
+
+Changelog summary : https://github.com/areski/django-nvd3/blob/master/CHANGELOG.rst
 
 
 .. _contributing:
@@ -162,6 +228,6 @@ Bug tracker: http://github.com/areski/django-nvd3/issues
 License
 =======
 
-Copyright (c) 2013 Arezqui Belaid <areski@gmail.com>
+Copyright (c) 2013-2014 Arezqui Belaid <areski@gmail.com>
 
 Django-nvd3 is licensed under MIT, see `MIT-LICENSE.txt`.
