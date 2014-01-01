@@ -164,8 +164,8 @@ Charts list:
 Projects using Django-nvd3
 --------------------------
 
-* CDR-Stats : www.cdr-stats.org
-* Newfies-Dialer : www.newfies-dialer.org
+* CDR-Stats : http://www.cdr-stats.org
+* Newfies-Dialer : http://www.newfies-dialer.org
 
 
 Documentation
