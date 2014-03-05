@@ -111,7 +111,7 @@ def include_chart_jscss(static_dir=''):
     Include the html for the chart container and css for nvd3
     This will include something similar as :
 
-        <link media="all" href="/static/nvd3/nv.d3.min.css" type="text/css" rel="stylesheet" />
+        <link media="all" href="/static/nvd3/src/nv.d3.min.css" type="text/css" rel="stylesheet" />
         <script src="/static/d3/d3.min.js" type="text/javascript"></script>
         <script src="/static/nvd3/nv.d3.min.js" type="text/javascript"></script>
 
@@ -130,7 +130,7 @@ def include_chart_jscss(static_dir=''):
     chart.header_css = [
         '<link media="all" href="%s" type="text/css" rel="stylesheet" />\n' % h for h in
         (
-            "%s%snvd3/nv.d3.min.css" % (settings.STATIC_URL, static_dir),
+            "%s%snvd3/src/nv.d3.min.css" % (settings.STATIC_URL, static_dir),
         )
     ]
 
