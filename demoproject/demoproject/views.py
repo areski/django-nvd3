@@ -536,3 +536,44 @@ def demo_lineplusbarwithfocuschart(request):
         },
     }
     return render_to_response('lineplusbarwithfocuschart.html', data)
+
+
+def demo_lineplusbarwithfocuschart_without_date(request):
+    """
+    lineplusbarwithfocuschart_without_date page
+    """
+    xdata = []
+    ydata = []
+    ydata2 = []
+
+    ydata = [0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 4, 3, 3, 5, 7, 5, 3, 16, 6, 9, 15, 4, 12]
+    ydata2 = [9, 8, 11, 8, 3, 7, 10, 8, 6, 6, 9, 6, 5, 4, 3, 10, 0, 6, 3, 1, 0, 0, 0, 1]
+    ydata3 = [9, 8, 15, 8, 4, 7, 20, 8, 4, 6, 0, 4, 5, 7, 3, 15, 30, 6, 3, 1, 0, 0, 0, 1]
+    ydata4 = [2, 7, 13, 0, 8, 7, 20, 8, 7, 5, 2, 4, 5, 7, 1, 11, 10, 6, 3, 1, 0, 0, 0, 1]
+
+    for i in range(0, 24):
+        xdata.append(i)
+    kwargs = {"bar": "true"}
+    #tooltip_date = ""  # "%d %b %Y %H:%M:%S %p"
+    extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"}}
+    chartdata = {'x': xdata,
+                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie, 'kwargs1': kwargs,
+                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie,
+                 'name3': 'series 3', 'y3': ydata3, 'extra3': extra_serie,
+                 'name4': 'series 4', 'y4': ydata4, 'extra4': extra_serie,
+                }
+
+    charttype = "linePlusBarWithFocusChart"
+    chartcontainer = 'lineplusbarwithfocuschart_container'  # container name
+    data = {
+        'charttype': charttype,
+        'chartdata': chartdata,
+        'chartcontainer': chartcontainer,
+        'extra': {
+            'x_is_date': False,
+            'x_axis_format': 'AM_PM',
+            'tag_script_js': True,
+            'jquery_on_ready': True,
+        }
+    }
+    return render_to_response('lineplusbarwithfocuschart_with_ampm.html', data)

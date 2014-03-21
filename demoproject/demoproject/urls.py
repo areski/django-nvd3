@@ -21,6 +21,7 @@ urlpatterns = patterns('demoproject.views',
     url(r'^scatterchart/', 'demo_scatterchart', name='demo_scatterchart'),
     url(r'^linechart_with_ampm/', 'demo_linechart_with_ampm', name='demo_linechart_with_ampm'),
     url(r'^lineplusbarwithfocuschart/', 'demo_lineplusbarwithfocuschart', name='demo_lineplusbarwithfocuschart'),
+    url(r'^lineplusbarwithfocuschart_without_date/', 'demo_lineplusbarwithfocuschart_without_date', name='demo_lineplusbarwithfocuschart_without_date'),
     # url(r'^demoproject/', include('demoproject.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
