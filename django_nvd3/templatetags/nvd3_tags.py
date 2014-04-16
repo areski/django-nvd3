@@ -42,7 +42,7 @@ def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
     if not 'tag_script_js' in kw_extra:
         kw_extra['tag_script_js'] = True
     # set the container name
-    kw_extra['name'] = container
+    kw_extra['name'] = unicode(container)
 
     # Build chart
     chart = eval(chart_type)(**kw_extra)
@@ -97,7 +97,7 @@ def include_container(include_container, height=400, width=600):
         * ``width`` - Chart width
     """
     chart = NVD3Chart()
-    chart.name = include_container
+    chart.name = unicode(include_container)
     chart.set_graph_height(height)
     chart.set_graph_width(width)
     chart.buildcontainer()
