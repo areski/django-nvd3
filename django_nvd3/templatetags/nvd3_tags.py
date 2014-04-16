@@ -29,6 +29,7 @@ def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
         * ``jquery_on_ready`` - if enabled it will load the javascript only when page is loaded
             this will use jquery library, so make sure to add jquery to the template.
         * ``color_category`` - Define color category (eg. category10, category20, category20c)
+        * ``chart_attr`` - Custom chart attributes
     """
     if not chart_type:
         return False
@@ -41,6 +42,8 @@ def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
         kw_extra['color_category'] = "category20"
     if not 'tag_script_js' in kw_extra:
         kw_extra['tag_script_js'] = True
+    if not 'chart_attr' in kw_extra:
+        kw_extra['chart_attr'] = {}
     # set the container name
     kw_extra['name'] = container
 
