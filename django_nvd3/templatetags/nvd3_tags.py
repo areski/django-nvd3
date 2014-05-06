@@ -51,8 +51,10 @@ def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
     chart = eval(chart_type)(**kw_extra)
 
     xdata = series['x']
-    y_axis_list = [d for d in series.keys() if 'y' in d]
-    y_axis_list.sort()
+    y_axis_list = [k for k in series.keys() if k.startswith('y')]
+    if len(y_axis_list) > 1:
+        # Ensure numeric sorting
+        y_axis_list = sorted(y_axis_list, key=lambda x: int(x[1:]))
 
     for key in y_axis_list:
         ydata = series[key]
@@ -60,21 +62,9 @@ def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
 
         name = series['name' + axis_no] if series.get('name' + axis_no) else None
         extra = series['extra' + axis_no] if series.get('extra' + axis_no) else {}
+        kwargs = series['kwargs' + axis_no] if series.get('kwargs' + axis_no) else {}
 
-        if chart_type == 'linePlusBarChart' or chart_type == 'linePlusBarWithFocusChart':
-            if key == 'y1':
-                kwargs = series['kwargs1']
-                chart.add_serie(name=name, y=ydata, x=xdata, extra=extra, **kwargs)
-            else:
-                chart.add_serie(name=name, y=ydata, x=xdata, extra=extra)
-        elif chart_type == 'scatterChart':
-            # get digit
-            kwargs = series['kwargs' + axis_no]
-            chart.add_serie(name=name, y=ydata, x=xdata, extra=extra, **kwargs)
-        elif chart_type == 'pieChart':
-            chart.add_serie(y=ydata, x=xdata, extra=extra)
-        else:
-            chart.add_serie(name=name, y=ydata, x=xdata, extra=extra)
+        chart.add_serie(name=name, y=ydata, x=xdata, extra=extra, **kwargs)
 
     chart.buildhtml()
 
