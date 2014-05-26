@@ -1,1 +1,1 @@
-python-nvd3==0.11.0
+python-nvd3==0.12.0
