@@ -66,9 +66,10 @@ def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
 
         chart.add_serie(name=name, y=ydata, x=xdata, extra=extra, **kwargs)
 
-    chart.buildhtml()
+    chart.display_container = False
+    chart.buildcontent()
 
-    html_string = chart.jschart + '\n'
+    html_string = chart.htmlcontent + '\n'
     return mark_safe(html_string)
 
 
