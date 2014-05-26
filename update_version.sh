@@ -1,3 +1,8 @@
+#
+# Usage:
+#   ./update_version.sh 0.7.0
+#
+
 git flow release start v$1
 sed -i -e "s/__version__ = '.*'/__version__ = '$1'/g" django_nvd3/__init__.py
 sed -i -e "s/version = '.*'/version = '$1'/g" docs/source/conf.py
