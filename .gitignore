@@ -33,4 +33,5 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+*.db
 demoproject/static
