@@ -139,7 +139,7 @@ See the demo project in directory 'demoproject' for examples of django-nvd3 usag
 Live demo of NVD3
 -----------------
 
-See a live demo on jsfiddle : http://jsfiddle.net/areski/z4zuH/3/
+See a live demo on jsfiddle : http://jsfiddle.net/areski/z4zuH/246/
 
 
 .. _supported_charts:
