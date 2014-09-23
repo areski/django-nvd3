@@ -127,7 +127,7 @@ Our template piechart.html could look like this::
 We use include the Javascript and CSS code for D3/NVD3.
 We start preparing and display the javascript code needed to render our pieChart::
 
-    {% load_chart charttype chartdata "piechart_container" %}
+    {% load_chart charttype chartdata "piechart_container" extra %}
 
 Finally we create a div container which will be used to display the chart.
 
