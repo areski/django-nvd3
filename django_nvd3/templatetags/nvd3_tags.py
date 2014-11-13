@@ -9,7 +9,7 @@ from nvd3 import lineWithFocusChart, lineChart, \
 
 
 @register.simple_tag
-def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
+def load_chart(chart_type, series, container, kw_extra={}, *args, **kwargs):
     """Loads the Chart objects in the container.
 
     **usage**:
