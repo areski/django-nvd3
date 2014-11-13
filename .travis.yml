@@ -11,4 +11,3 @@ notifications:
 branches:
     only:
         - develop
-
