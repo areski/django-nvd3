@@ -71,6 +71,8 @@ MEDIA_URL = ''
 # Example: "/var/www/example.com/static/"
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
+APPLICATION_DIR = os.path.dirname(globals()['__file__']) + '/../'
+
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = '/static/'
@@ -116,7 +118,7 @@ ROOT_URLCONF = 'demoproject.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'demoproject.wsgi.application'
 
-TEMPLATE_DIRS = ( os.path.join(APPLICATION_DIR, 'templates'), )
+TEMPLATE_DIRS = (os.path.join(APPLICATION_DIR, 'templates'), )
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -176,17 +178,17 @@ LOGGING = {
 # ------------
 
 # Specifie path to components root (you need to use absolute path)
-BOWER_COMPONENTS_ROOT = os.path.join(PROJECT_ROOT, 'components')
+BOWER_COMPONENTS_ROOT = os.path.join(APPLICATION_DIR, 'components')
 
 BOWER_PATH = '/usr/local/bin/bower'
 
 BOWER_INSTALLED_APPS = (
-    'd3#3.3.6',
-    'nvd3#1.1.12-beta',
+    'd3#3.3.13',
+    'nvd3#1.7.1',
 )
 
-#IMPORT LOCAL SETTINGS
-#=====================
+# IMPORT LOCAL SETTINGS
+# =====================
 try:
     from settings_local import *
 except ImportError:
