@@ -5,7 +5,7 @@ from nvd3.NVD3Chart import NVD3Chart
 from nvd3 import lineWithFocusChart, lineChart, \
     multiBarChart, pieChart, stackedAreaChart, \
     multiBarHorizontalChart, linePlusBarChart, \
-    cumulativeLineChart, discreteBarChart, scatterChart, linePlusBarWithFocusChart
+    cumulativeLineChart, discreteBarChart, scatterChart
 
 
 @register.simple_tag
@@ -34,15 +34,15 @@ def load_chart(chart_type, series, container, kw_extra={}, *args, **kwargs):
     if not chart_type:
         return False
 
-    if not 'x_is_date' in kw_extra:
+    if 'x_is_date' not in kw_extra:
         kw_extra['x_is_date'] = False
-    if not 'x_axis_format' in kw_extra:
+    if 'x_axis_format' not in kw_extra:
         kw_extra['x_axis_format'] = "%d %b %Y"
-    if not 'color_category' in kw_extra:
+    if 'color_category' not in kw_extra:
         kw_extra['color_category'] = "category20"
-    if not 'tag_script_js' in kw_extra:
+    if 'tag_script_js' not in kw_extra:
         kw_extra['tag_script_js'] = True
-    if not 'chart_attr' in kw_extra:
+    if 'chart_attr' not in kw_extra:
         kw_extra['chart_attr'] = {}
     # set the container name
     kw_extra['name'] = str(container)
