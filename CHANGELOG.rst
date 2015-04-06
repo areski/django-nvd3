@@ -1,6 +1,25 @@
 Changelog
 =========
 
+0.8.0 - (2015-04-06)
+--------------------
+
+- add support for nvd3 version 1.7.1
+- bump requirement python-nvd3==0.13.6
+- remove lineplusbarwithfocuschart
+
+
+0.7.8 - (2015-03-09)
+--------------------
+python3 - replace 'unicode' with 'str'
+
+...
+
+...
+
+...
+
+
 0.6.1 (2013-12-05)
 ------------------
 

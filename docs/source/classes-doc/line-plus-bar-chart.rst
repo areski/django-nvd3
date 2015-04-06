@@ -28,6 +28,7 @@ Django example::
         xdata = map(lambda x: start_time + x * 1000000000, xdata)
         ydata = [i + random.randint(1, 10) for i in range(nb_element)]
         ydata2 = [i + random.randint(1, 10) for i in reversed(range(nb_element))]
+
         kwargs1 = {}
         kwargs1['bar'] = True
 
@@ -47,6 +48,9 @@ Django example::
         data = {
             'charttype': charttype,
             'chartdata': chartdata,
+            'extra': {
+                'focus_enable': True,
+            },
         }
         return render_to_response('lineplusbarchart.html', data)
 

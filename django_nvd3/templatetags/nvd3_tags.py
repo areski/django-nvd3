@@ -124,7 +124,7 @@ def include_chart_jscss(static_dir=''):
     chart.header_css = [
         '<link media="all" href="%s" type="text/css" rel="stylesheet" />\n' % h for h in
         (
-            "%s%snvd3/src/nv.d3.css" % (settings.STATIC_URL, static_dir),
+            "%s%snvd3/build/nv.d3.min.css" % (settings.STATIC_URL, static_dir),
         )
     ]
 
@@ -132,7 +132,7 @@ def include_chart_jscss(static_dir=''):
         '<script src="%s" type="text/javascript"></script>\n' % h for h in
         (
             "%s%sd3/d3.min.js" % (settings.STATIC_URL, static_dir),
-            "%s%snvd3/nv.d3.min.js" % (settings.STATIC_URL, static_dir)
+            "%s%snvd3/build/nv.d3.min.js" % (settings.STATIC_URL, static_dir)
         )
     ]
     chart.buildhtmlheader()
