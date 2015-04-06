@@ -158,8 +158,6 @@ Charts list:
 
 .. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/scatterChart.png
 
-.. image:: https://raw.github.com/areski/django-nvd3/master/docs/source/_static/screenshot/linePlusBarWithFocusChart.png
-
 
 Projects using Django-nvd3
 --------------------------
