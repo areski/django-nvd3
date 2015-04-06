@@ -9,7 +9,7 @@ for d3.js without taking away the power that d3.js gives you.
 Project location : https://github.com/areski/django-nvd3
 """
 
-__version__ = '0.8.0'  # edit also docs/source/conf.py and update requirements.txt
+__version__ = '0.8.1'  # edit also docs/source/conf.py and update requirements.txt
 __author__ = "Areski Belaid"
 __contact__ = "areski@gmail.com"
 __homepage__ = "http://areskibelaid.com/"
