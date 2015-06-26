@@ -100,7 +100,7 @@ def include_container(include_container, height=400, width=600):
 
 
 @register.simple_tag
-def include_chart_jscss(static_dir=''):
+def include_chart_jscss(static_dir='', css_dir='', js_dir=''):
     """
     Include the html for the chart container and css for nvd3
     This will include something similar as :
@@ -111,28 +111,57 @@ def include_chart_jscss(static_dir=''):
 
     **usage**:
 
+        {% include_chart_jscss %}
+
+    Or if you want to specify a subdirectory below STATIC_URL for all static files,
+
         {% include_chart_jscss 'newfies' %}
+
+    Or if you have all your CSS and JS files in particular directories and want to specify them,
+
+        {% include_chart_jscss css_dir='css' js_dir='js' %}
 
     **Arguments**:
 
         * ``static_dir`` -
+        * ``css_dir`` -
+        * ``js_dir`` -
     """
     if static_dir:
         static_dir += '/'
+
+    css_files_dirs = {}
+    js_files_dirs = {}
+
+    css_files_dirs['nv.d3.min.css'] = '%s%snvd3/build/' % (settings.STATIC_URL, static_dir)
+
+    js_files_dirs['d3.min.js'] = '%s%sd3/' % (settings.STATIC_URL, static_dir)
+    js_files_dirs['nv.d3.min.js'] = '%s%snvd3/build/' % (settings.STATIC_URL, static_dir)
+
+    if css_dir:
+        if not css_dir.endswith('/'):
+            css_dir += '/'
+        for css_file in css_files_dirs:
+            css_files_dirs[css_file] = '%s%s%s' % (settings.STATIC_URL, static_dir, css_dir)
+
+    if js_dir:
+        if not js_dir.endswith('/'):
+            js_dir += '/'
+        for js_file in js_files_dirs:
+            js_files_dirs[js_file] = '%s%s%s' % (settings.STATIC_URL, static_dir, js_dir)
 
     chart = NVD3Chart()
     chart.header_css = [
         '<link media="all" href="%s" type="text/css" rel="stylesheet" />\n' % h for h in
         (
-            "%s%snvd3/build/nv.d3.min.css" % (settings.STATIC_URL, static_dir),
+            '%s%s' % (path, css_file) for css_file, path in css_files_dirs.items()
         )
     ]
 
     chart.header_js = [
         '<script src="%s" type="text/javascript"></script>\n' % h for h in
         (
-            "%s%sd3/d3.min.js" % (settings.STATIC_URL, static_dir),
-            "%s%snvd3/build/nv.d3.min.js" % (settings.STATIC_URL, static_dir)
+            '%s%s' % (path, js_file) for js_file, path in js_files_dirs.items()
         )
     ]
     chart.buildhtmlheader()
