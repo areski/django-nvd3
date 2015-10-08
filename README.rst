@@ -90,6 +90,7 @@ So to achieve this, we will edit our view.py, we will prepare the data that will
 
 We will render the template 'piechart.html' with a dictionary 'data' which contains 'charttype' and 'chartdata'.
 'extra' will contains a list of additional settings::
+
     * ``x_is_date`` - if enabled the x-axis will be display as date format
     * ``x_axis_format`` - set the x-axis date format, ie. "%d %b %Y"
     * ``tag_script_js`` - if enabled it will add the javascript tag '<script>'
