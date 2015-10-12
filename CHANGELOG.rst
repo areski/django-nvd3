@@ -4,7 +4,13 @@ History
 -------
 
 
-0.8.4 (2015-10-12)
+0.9.1 (2015-10-12)
+------------------
+
+* Add changelog to Manifest
+
+
+0.9.0 (2015-10-12)
 ------------------
 
 * add charset to js script tag
@@ -87,19 +93,19 @@ History
 
 
 0.1.12 (2013-07-09)
-------------------
+-------------------
 
 * Generalise the axis_formatting
 
 
 0.1.11 (2013-05-30)
-------------------
+-------------------
 
 * Python3 Fix for setup.py TypeError (by DanMeakin)
 
 
 0.1.10 (2013-05-30)
-------------------
+-------------------
 
 * Add example for multichart with Date + test
 
