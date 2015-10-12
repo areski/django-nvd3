@@ -87,19 +87,19 @@ History
 
 
 0.1.12 (2013-07-09)
-------------------
+-------------------
 
 * Generalise the axis_formatting
 
 
 0.1.11 (2013-05-30)
-------------------
+-------------------
 
 * Python3 Fix for setup.py TypeError (by DanMeakin)
 
 
 0.1.10 (2013-05-30)
-------------------
+-------------------
 
 * Add example for multichart with Date + test
 
