@@ -1,42 +1,39 @@
-Changelog
-=========
+.. :changelog:
+
+History
+-------
 
 
-0.8.4 - (2015-10-12)
---------------------
+0.8.4 (2015-10-12)
+------------------
 
-- add charset to js script tag
-
-
-0.8.2 - (2015-04-06)
---------------------
-
-- bump python-nvd3==0.13.7
+* add charset to js script tag
 
 
-0.8.1 - (2015-04-06)
---------------------
+0.8.2 (2015-04-06)
+------------------
 
-- fix error linePlusBarWithFocusChart
-
-
-0.8.0 - (2015-04-06)
---------------------
-
-- add support for nvd3 version 1.7.1
-- bump requirement python-nvd3==0.13.6
-- remove lineplusbarwithfocuschart
+* bump python-nvd3==0.13.7
 
 
-0.7.8 - (2015-03-09)
---------------------
-python3 - replace 'unicode' with 'str'
+0.8.1 (2015-04-06)
+------------------
 
-...
+* fix error linePlusBarWithFocusChart
 
-...
 
-...
+0.8.0 (2015-04-06)
+------------------
+
+* add support for nvd3 version 1.7.1
+* bump requirement python-nvd3==0.13.6
+* remove lineplusbarwithfocuschart
+
+
+0.7.8 (2015-03-09)
+------------------
+
+* python3 * replace 'unicode' with 'str'
 
 
 0.6.1 (2013-12-05)
@@ -122,7 +119,7 @@ python3 - replace 'unicode' with 'str'
 0.1.7 (2013-04-24)
 ------------------
 
-* Add custom dateformat for tooltip : ``x_axis_date_format`` - display x-axis date in various format ie "%d %b %Y"
+* Add custom dateformat for tooltip : ``x_axis_date_format`` * display x-axis date in various format ie "%d %b %Y"
 
 
 0.1.6 (2013-04-23)
@@ -152,13 +149,13 @@ python3 - replace 'unicode' with 'str'
 0.1.1 (2013-04-22)
 ------------------
 
-* Change dependencies to python-nvd3 version - fix lineChart tooltip
+* Change dependencies to python-nvd3 version * fix lineChart tooltip
 
 
-0.1 (2013-04-XX)
+0.1 (2013-04-12)
 ----------------
 
-* Proper project release including support for the following chart:
+* Proper project release including support for the following chart::
 
     lineWithFocusChart
     lineChart
