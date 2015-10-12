@@ -1,11 +1,14 @@
 from setuptools import setup, find_packages
 import django_nvd3
-import os
 import re
 
 
-def read(*parts):
-    return open(os.path.join(os.path.dirname(__file__), *parts)).read()
+with open('README.rst') as readme_file:
+    readme = readme_file.read()
+
+
+with open('HISTORY.rst') as history_file:
+    history = history_file.read().replace('.. :changelog:', '')
 
 
 def parse_requirements(file_name):
@@ -35,7 +38,7 @@ setup(
     name='django-nvd3',
     version=django_nvd3.__version__,
     description="Django NVD3 - Chart Library for d3.js",
-    long_description=read('README.rst'),
+    long_description=readme + '\n\n' + history,
     keywords='django, nvd3, chart, graph, d3',
     url='http://github.com/areski/django-nvd3',
     author='Belaid Arezqui',
