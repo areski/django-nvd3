@@ -159,7 +159,7 @@ def include_chart_jscss(static_dir='', css_dir='', js_dir=''):
     ]
 
     chart.header_js = [
-        '<script src="%s" type="text/javascript"></script>\n' % h for h in
+        '<script src="%s" type="text/javascript" charset="utf-8"></script>\n' % h for h in
         (
             '%s%s' % (path, js_file) for js_file, path in js_files_dirs.items()
         )
