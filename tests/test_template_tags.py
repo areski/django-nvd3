@@ -5,6 +5,7 @@ from django.template import (
     Template
 )
 from django.conf import settings
+settings.configure()
 from django.test.utils import override_settings
 try:
     # django < 1.7
@@ -27,10 +28,6 @@ from django_nvd3.templatetags.nvd3_tags import load_chart, include_container
 
 
 class NVD3TemplateTagsTestCase(unittest.TestCase):
-
-    @classmethod
-    def setUpClass(cls):
-        settings.configure()
 
     def render_template(self, string, context=None):
         context = context or {}
