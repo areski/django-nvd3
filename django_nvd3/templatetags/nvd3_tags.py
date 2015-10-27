@@ -1,3 +1,5 @@
+import collections
+
 from django.template.defaultfilters import register
 from django.utils.safestring import mark_safe
 from django.conf import settings
@@ -130,8 +132,8 @@ def include_chart_jscss(static_dir='', css_dir='', js_dir=''):
     if static_dir:
         static_dir += '/'
 
-    css_files_dirs = {}
-    js_files_dirs = {}
+    css_files_dirs = collections.OrderedDict()
+    js_files_dirs = collections.OrderedDict()
 
     css_files_dirs['nv.d3.min.css'] = '%s%snvd3/build/' % (settings.STATIC_URL, static_dir)
 
