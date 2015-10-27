@@ -10,7 +10,7 @@ NVD3 is an attempt to build re-usable charts and chart components
 for d3.js without taking away the power that d3.js gives you.
 
 
-.. image:: https://travis-ci.org/areski/django-nvd3.svg?branch=master
+.. image:: https://travis-ci.org/areski/django-nvd3.svg?branch=develop
     :target: https://travis-ci.org/areski/django-nvd3
 
 Installation
