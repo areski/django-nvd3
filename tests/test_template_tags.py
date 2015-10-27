@@ -1,4 +1,4 @@
-from templatetags.nvd3_tags import load_chart, include_container
+from django_nvd3.templatetags.nvd3_tags import load_chart, include_container
 import unittest
 
 

@@ -49,6 +49,8 @@ setup(
     include_package_data=True,
     package_data={},
     install_requires=parse_requirements('requirements.txt'),
+    tests_require=parse_requirements('test_requirements.txt'),
+    test_suite='tests',
     dependency_links=parse_dependency_links('requirements.txt'),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
