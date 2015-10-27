@@ -4,6 +4,13 @@ History
 -------
 
 
+0.9.2 (2015-10-27)
+------------------
+
+* Fix test suits by @lgp171188 (L. Guruprasad)
+* Add Travis-CI test for Python version 3.4 & 3.5
+
+
 0.9.1 (2015-10-12)
 ------------------
 
