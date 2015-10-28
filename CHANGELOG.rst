@@ -4,6 +4,12 @@ History
 -------
 
 
+0.9.3 (2015-10-28)
+------------------
+
+* add test_requirements.txt to MANIFEST.in
+
+
 0.9.2 (2015-10-27)
 ------------------
 
@@ -14,7 +20,7 @@ History
 0.9.1 (2015-10-12)
 ------------------
 
-* Add changelog to Manifest
+* Add changelog to MANIFEST.in
 
 
 0.9.0 (2015-10-12)
