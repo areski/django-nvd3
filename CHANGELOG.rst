@@ -4,7 +4,7 @@ History
 -------
 
 
-0.9.3 (2015-10-28)
+0.9.4 (2015-10-28)
 ------------------
 
 * add test_requirements.txt to MANIFEST.in
