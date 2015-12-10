@@ -4,6 +4,13 @@ History
 -------
 
 
+0.9.7 (2015-12-10)
+------------------
+
+* fix test suit + remove python3.3 support (Django 1.9)
+* demoproject: update your urlpatterns to be a list of django.conf.urls.url() instances instead
+
+
 0.9.4 (2015-10-28)
 ------------------
 

@@ -1,28 +1,25 @@
 import unittest
 
+
+import django
 from django.template import (
     Context,
     Template
 )
 from django.conf import settings
 settings.configure()
+django.setup()
 from django.test.utils import override_settings
 try:
-    # django < 1.7
-    from django.template import loader
-    add_to_builtins = loader.add_to_builtins
-except AttributeError:
-    try:
-        # django >= 1.7
-        from django.template.base import add_to_builtins
-    except ImportError:
-        # django >= 1.9
-        def add_to_builtins(module):
-            from django.template.engine import Engine
-            template_engine = Engine.get_default()
-            template_engine.builtins.append(module)
-            template_engine.template_builtins = \
-                template_engine.get_template_builtins(template_engine.builtins)
+    from django.template.base import add_to_builtins
+except ImportError:
+    # django >= 1.9
+    def add_to_builtins(module):
+        from django.template.engine import Engine
+        template_engine = Engine.get_default()
+        template_engine.builtins.append(module)
+        template_engine.template_builtins = \
+            template_engine.get_template_builtins(template_engine.builtins)
 
 from django_nvd3.templatetags.nvd3_tags import load_chart, include_container
 
