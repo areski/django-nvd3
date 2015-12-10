@@ -4,6 +4,12 @@ History
 -------
 
 
+0.9.7 (2015-12-10)
+------------------
+
+* demoproject: update your urlpatterns to be a list of django.conf.urls.url() instances instead
+
+
 0.9.4 (2015-10-28)
 ------------------
 
