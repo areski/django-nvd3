@@ -65,7 +65,7 @@ def load_chart(chart_type, series, container, kw_extra={}, *args, **kwargs):
         # Ensure numeric sorting
         y_axis_list = sorted(y_axis_list, key=lambda x: int(x[1:]))
 
-    for key in y_axis_list:
+    for i, key in enumerate(y_axis_list):
         
         if len(x_axis_list) > 1:
             key_x = x_axis_list[i]
