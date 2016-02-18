@@ -60,16 +60,15 @@ def demo_linechart(request):
     extra_serie1 = {
         "tooltip": {"y_start": "", "y_end": " cal"},
         "date_format": tooltip_date,
-        'color': '#a4c639'
     }
     extra_serie2 = {
         "tooltip": {"y_start": "", "y_end": " cal"},
         "date_format": tooltip_date,
-        'color': '#FF8aF8'
     }
     chartdata = {'x': xdata,
-                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie1,
-                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie2}
+        'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie1, 'kwargs1': { 'color': '#a4c639' },
+        'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie2, 'kwargs2': { 'color': '#ff8af8' },
+    }
 
     charttype = "lineChart"
     chartcontainer = 'linechart_container'  # container name
