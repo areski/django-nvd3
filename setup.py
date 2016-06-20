@@ -1,57 +1,40 @@
 from setuptools import setup, find_packages
-import django_nvd3
 import re
 
 
-with open('README.rst') as readme_file:
-    readme = readme_file.read()
+def get_version(filename="django_nvd3/__init__.py", varname="__version__"):
+    glb = {}
+    with open(filename) as fp:
+        for line in fp:
+            if varname in line:
+                exec(line, glb)
+                break
+    return glb[varname]
 
 
-with open('CHANGELOG.rst') as history_file:
-    history = history_file.read().replace('.. :changelog:', '')
+def readfile(filename):
+    with open(filename) as fp:
+        return fp.read()
 
 
-def parse_requirements(file_name):
-    requirements = []
-    for line in open(file_name, 'r').read().split('\n'):
-        if re.match(r'(\s*#)|(\s*$)', line):
-            continue
-        if re.match(r'\s*-e\s+', line):
-            requirements.append(re.sub(r'\s*-e\s+.*#egg=(.*)$', r'\1', line))
-        elif re.match(r'(\s*git)|(\s*hg)', line):
-            pass
-        else:
-            requirements.append(line)
-    return requirements
-
-
-def parse_dependency_links(file_name):
-    dependency_links = []
-    for line in open(file_name, 'r').read().split('\n'):
-        if re.match(r'\s*-[ef]\s+', line):
-            dependency_links.append(re.sub(r'\s*-[ef]\s+', '', line))
-
-    return dependency_links
+readme = readfile('README.rst')
+history = readfile('CHANGELOG.rst').replace('.. :changelog:', '')
 
 
 setup(
     name='django-nvd3',
-    version=django_nvd3.__version__,
+    version=get_version(),
     description="Django NVD3 - Chart Library for d3.js",
     long_description=readme + '\n\n' + history,
     keywords='django, nvd3, chart, graph, d3',
     url='http://github.com/areski/django-nvd3',
     author='Belaid Arezqui',
     author_email='areski@gmail.com',
-    license='MIT License',
+    license='MIT',
     zip_safe=False,
-    packages=find_packages(exclude=["tests", "demoproject", "docs"]),
-    include_package_data=True,
-    package_data={},
-    install_requires=parse_requirements('requirements.txt'),
-    tests_require=parse_requirements('test_requirements.txt'),
+    packages=["django_nvd3"],
+    install_requires=["Django", "python-nvd3"],
     test_suite='tests',
-    dependency_links=parse_dependency_links('requirements.txt'),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
@@ -60,6 +43,11 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Topic :: Software Development :: Libraries :: Python Modules'
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
     ],
 )
