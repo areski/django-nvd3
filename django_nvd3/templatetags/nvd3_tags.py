@@ -7,7 +7,8 @@ from nvd3.NVD3Chart import NVD3Chart
 from nvd3 import lineWithFocusChart, lineChart, \
     multiBarChart, pieChart, stackedAreaChart, \
     multiBarHorizontalChart, linePlusBarChart, \
-    cumulativeLineChart, discreteBarChart, scatterChart
+    cumulativeLineChart, discreteBarChart, scatterChart, \
+    multiChart
 
 
 @register.simple_tag
@@ -65,13 +66,19 @@ def load_chart(chart_type, series, container, kw_extra={}, *args, **kwargs):
         name = series['name' + axis_no] if series.get('name' + axis_no) else None
         extra = series['extra' + axis_no] if series.get('extra' + axis_no) else {}
         kwargs = series['kwargs' + axis_no] if series.get('kwargs' + axis_no) else {}
+        chartType = series['type' + axis_no] if series.get('type' + axis_no) else {}
+        yaxis = series['axisy' + axis_no] if series.get('axisy' + axis_no) else {}
 
-        chart.add_serie(name=name, y=ydata, x=xdata, extra=extra, **kwargs)
+        chart.add_serie(name=name, type=chartType, yaxis=yaxis, y=ydata, x=xdata, extra=extra, **kwargs)
 
     chart.display_container = False
     chart.buildcontent()
 
     html_string = chart.htmlcontent + '\n'
+    # hack for multichart dual axis: without this line added to js the yAxis2 tooltip has the the yAxis1 format
+    if chart_type=='multiChart':
+        i=str.find(html_string,'nv.addGraph')
+        html_string = html_string[:i] + 'data_' + chart.name + '[1].yAxis=2;\n\n' + html_string[i:]
     return mark_safe(html_string)
 
 
