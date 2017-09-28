@@ -75,7 +75,7 @@ def load_chart(chart_type, series, container, kw_extra={}, *args, **kwargs):
     chart.buildcontent()
 
     html_string = chart.htmlcontent + '\n'
-    # hack for multichart dual axis: without this line added to js the yAxis2 tooltip has the the yAxis1 format
+    # hack for multichart dual axis: without this line added to js the yAxis2 tooltip has the same yAxis1 format
     if chart_type=='multiChart':
         i=str.find(html_string,'nv.addGraph')
         html_string = html_string[:i] + 'data_' + chart.name + '[1].yAxis=2;\n\n' + html_string[i:]
