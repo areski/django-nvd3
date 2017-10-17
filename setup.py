@@ -1,10 +1,11 @@
 from setuptools import setup, find_packages
+from io import open
 import re
 
 
 def get_version(filename="django_nvd3/__init__.py", varname="__version__"):
     glb = {}
-    with open(filename) as fp:
+    with open(filename, encoding='utf-8') as fp:
         for line in fp:
             if varname in line:
                 exec(line, glb)
@@ -13,7 +14,7 @@ def get_version(filename="django_nvd3/__init__.py", varname="__version__"):
 
 
 def readfile(filename):
-    with open(filename) as fp:
+    with open(filename, encoding='utf-8') as fp:
         return fp.read()
 
 
