@@ -1,1 +1,1 @@
-git+git://github.com/areski/python-nvd3@master
+git+git://github.com/areski/python-nvd3@develop
