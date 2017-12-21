@@ -1,1 +1,1 @@
-git+git://github.com/really/bogus/url
+python-nvd3==0.14.2
