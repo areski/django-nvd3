@@ -214,3 +214,29 @@ def demo_scatterchart(request):
         'chartdata': chartdata,
     }
     return render_to_response('scatterchart.html', data)
+
+def demo_multichart(request):
+    """
+    multiChart page
+    """
+    start_time = int(time.mktime(datetime.datetime(2012, 6, 1).timetuple()) * 1000)
+    nb_element = 100
+    xdata = range(nb_element)
+    xdata = list(map(lambda x: start_time + x * 1000000000, xdata))
+    ydata = [i + random.randint(1, 10) for i in range(nb_element)]
+    ydata2 = map(lambda x: x*x, ydata)
+    ydata3 = map(lambda x: 1.5*x, ydata)
+    ydata4 = map(lambda x: .75 * x, ydata)
+
+    chartdata = {'x': xdata,
+        'name1': 'y1','y1': ydata, 'type1': 'line', 'axisy1': "1",
+        'name2': 'y2', 'y2': ydata2, 'type2': 'line', 'axisy2': "2",
+        'name3': 'y3', 'y3': ydata3, 'type3': 'scatter', 'axisy3': "1",'kwargs3': { 'shape': 'square'},
+        'name4': 'y4', 'y4': ydata4, 'type4': 'bar', 'axisy4': "1",
+    }
+    charttype = "multiChart"
+    data = {
+        'charttype': charttype,
+        'chartdata': chartdata
+    }
+    return render_to_response('multichart.html', data)
