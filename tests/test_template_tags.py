@@ -6,8 +6,6 @@ from django.template import (
     Context,
     Template
 )
-from django.conf import settings
-settings.configure()
 django.setup()
 from django.test.utils import override_settings
 try:
