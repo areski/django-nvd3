@@ -1,0 +1,49 @@
+name: Django CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        django-version: ['3.2.*', '4.0.*', '4.1.*', '4.2.*', '5.0.*']
+        exclude:
+            - django-version: '3.2.*'
+              python-version: '3.11'
+            - django-version: '3.2.*'
+              python-version: '3.12'
+
+            - django-version: '4.0.*'
+              python-version: '3.11'
+            - django-version: '4.0.*'
+              python-version: '3.12'
+
+            - django-version: '4.1.*'
+              python-version: '3.12'
+
+            - django-version: '5.0.*'
+              python-version: '3.8'
+            - django-version: '5.0.*'
+              python-version: '3.9'
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        pip install setuptools
+        pip install Django==${{ matrix.django-version }}
+        python setup.py install
+        pip install -r test_requirements.txt
+
+    - name: Run tests
+      run: DJANGO_SETTINGS_MODULE=demoproject.demoproject.settings python setup.py test
