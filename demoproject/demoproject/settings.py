@@ -3,7 +3,6 @@
 import os
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 APPLICATION_DIR = os.path.dirname(globals()['__file__'])
 
@@ -97,11 +96,37 @@ STATICFILES_FINDERS = (
 SECRET_KEY = 'sq)9^f#mf444c(#om$zpo0v!%y=%pqem*9s_qav93fwr_&x40u'
 
 # List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    'django.template.loaders.eggs.Loader',
-)
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [os.path.join(APPLICATION_DIR, "templates")],
+        "OPTIONS": {
+            "debug": DEBUG,
+            "loaders": [
+                (
+                    "django.template.loaders.cached.Loader",
+                    [
+                        "django.template.loaders.filesystem.Loader",
+                        "django.template.loaders.app_directories.Loader",
+                        "admin_tools.template_loaders.Loader",
+                    ],
+                ),
+            ],
+            "context_processors": [
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.debug",
+                "django.template.context_processors.i18n",
+                "django.template.context_processors.media",
+                "django.template.context_processors.static",
+                "django.template.context_processors.csrf",
+                "django.template.context_processors.tz",
+                "django.template.context_processors.request",
+            ],
+        },
+    }
+]
+
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -117,8 +142,6 @@ ROOT_URLCONF = 'demoproject.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'demoproject.wsgi.application'
-
-TEMPLATE_DIRS = (os.path.join(APPLICATION_DIR, 'templates'), )
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -183,7 +206,7 @@ BOWER_COMPONENTS_ROOT = os.path.join(APPLICATION_DIR, 'components')
 BOWER_PATH = '/usr/local/bin/bower'
 
 BOWER_INSTALLED_APPS = (
-    'd3#3.3.13',
+    'd3#3.5.5',
     'nvd3#1.7.1',
 )
 

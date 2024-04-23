@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 import random
 import datetime
 import time
@@ -10,7 +10,7 @@ def home(request):
     """
     home page
     """
-    return render_to_response('home.html')
+    return render(request, 'home.html')
 
 
 def demo_piechart(request):
@@ -42,7 +42,7 @@ def demo_piechart(request):
             'jquery_on_ready': False,
         }
     }
-    return render_to_response('piechart.html', data)
+    return render(request, 'piechart.html', data)
 
 
 def demo_linechart(request):
@@ -60,16 +60,15 @@ def demo_linechart(request):
     extra_serie1 = {
         "tooltip": {"y_start": "", "y_end": " cal"},
         "date_format": tooltip_date,
-        'color': '#a4c639'
     }
     extra_serie2 = {
         "tooltip": {"y_start": "", "y_end": " cal"},
         "date_format": tooltip_date,
-        'color': '#FF8aF8'
     }
     chartdata = {'x': xdata,
-                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie1,
-                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie2}
+        'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie1, 'kwargs1': { 'color': '#a4c639' },
+        'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie2, 'kwargs2': { 'color': '#ff8af8' },
+    }
 
     charttype = "lineChart"
     chartcontainer = 'linechart_container'  # container name
@@ -84,7 +83,7 @@ def demo_linechart(request):
             'jquery_on_ready': False,
         }
     }
-    return render_to_response('linechart.html', data)
+    return render('linechart.html', data)
 
 
 def demo_linechart_without_date(request):
@@ -111,7 +110,7 @@ def demo_linechart_without_date(request):
             'jquery_on_ready': False,
         }
     }
-    return render_to_response('linechart.html', data)
+    return render(request, 'linechart.html', data)
 
 
 def demo_linewithfocuschart(request):
@@ -152,7 +151,7 @@ def demo_linewithfocuschart(request):
             'jquery_on_ready': True,
         }
     }
-    return render_to_response('linewithfocuschart.html', data)
+    return render(request, 'linewithfocuschart.html', data)
 
 
 def demo_multibarchart(request):
@@ -216,7 +215,7 @@ def demo_multibarchart(request):
             'jquery_on_ready': True,
         },
     }
-    return render_to_response('multibarchart.html', data)
+    return render(request, 'multibarchart.html', data)
 
 
 def demo_stackedareachart(request):
@@ -250,7 +249,7 @@ def demo_stackedareachart(request):
             'jquery_on_ready': True,
         },
     }
-    return render_to_response('stackedareachart.html', data)
+    return render(request, 'stackedareachart.html', data)
 
 
 def demo_multibarhorizontalchart(request):
@@ -283,7 +282,7 @@ def demo_multibarhorizontalchart(request):
             'jquery_on_ready': True,
         },
     }
-    return render_to_response('multibarhorizontalchart.html', data)
+    return render(request, 'multibarhorizontalchart.html', data)
 
 
 def demo_lineplusbarchart(request):
@@ -325,7 +324,7 @@ def demo_lineplusbarchart(request):
             'focus_enable': True,
         },
     }
-    return render_to_response('lineplusbarchart.html', data)
+    return render(request, 'lineplusbarchart.html', data)
 
 
 def demo_cumulativelinechart(request):
@@ -364,7 +363,7 @@ def demo_cumulativelinechart(request):
             'jquery_on_ready': True,
         },
     }
-    return render_to_response('cumulativelinechart.html', data)
+    return render(request, 'cumulativelinechart.html', data)
 
 
 def demo_discretebarchart(request):
@@ -391,7 +390,7 @@ def demo_discretebarchart(request):
             'jquery_on_ready': True,
         },
     }
-    return render_to_response('discretebarchart.html', data)
+    return render(request, 'discretebarchart.html', data)
 
 
 def demo_discretebarchart_with_date(request):
@@ -422,7 +421,7 @@ def demo_discretebarchart_with_date(request):
             'jquery_on_ready': True,
         },
     }
-    return render_to_response('discretebarchart_with_date.html', data)
+    return render(request, 'discretebarchart_with_date.html', data)
 
 
 def demo_scatterchart(request):
@@ -460,7 +459,7 @@ def demo_scatterchart(request):
             'jquery_on_ready': True,
         },
     }
-    return render_to_response('scatterchart.html', data)
+    return render(request, 'scatterchart.html', data)
 
 
 def demo_linechart_with_ampm(request):
@@ -495,4 +494,4 @@ def demo_linechart_with_ampm(request):
             'jquery_on_ready': True,
         }
     }
-    return render_to_response('linechart_with_ampm.html', data)
+    return render(request, 'linechart_with_ampm.html', data)
