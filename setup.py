@@ -1,6 +1,5 @@
 from setuptools import setup, find_packages
 from io import open
-import re
 
 
 def get_version(filename="django_nvd3/__init__.py", varname="__version__"):
