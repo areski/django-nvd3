@@ -52,13 +52,26 @@ def load_chart(chart_type, series, container, kw_extra={}, *args, **kwargs):
     # Build chart
     chart = eval(chart_type)(**kw_extra)
 
-    xdata = series['x']
+    
+    x_axis_list = [k for k in series.keys() if k.startswith('x')]
     y_axis_list = [k for k in series.keys() if k.startswith('y')]
+    if len(x_axis_list) > 1 and len(x_axis_list) != len(y_axis_list):
+        raise RuntimeError("Number of x-series must be one or equal to the number of y-series")
+    
+    if len(x_axis_list) > 1:
+        # Ensure numeric sorting
+        x_axis_list = sorted(x_axis_list, key=lambda x: int(x[1:]))
     if len(y_axis_list) > 1:
         # Ensure numeric sorting
         y_axis_list = sorted(y_axis_list, key=lambda x: int(x[1:]))
 
-    for key in y_axis_list:
+    for i, key in enumerate(y_axis_list):
+        
+        if len(x_axis_list) > 1:
+            key_x = x_axis_list[i]
+        else:
+            key_x = x_axis_list[0]
+        xdata = series[key_x]
         ydata = series[key]
         axis_no = key.split('y')[1]
 
